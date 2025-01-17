@@ -1,6 +1,6 @@
 <?php 
 
-include "../database/handler.php";
+
 
 class Usuario {
 
@@ -55,7 +55,6 @@ class Usuario {
     
 }
 
-$usuario = new Usuario($conexion);
 
 
 ?>
