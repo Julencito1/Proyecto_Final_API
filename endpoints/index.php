@@ -1,23 +1,20 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-
-
 include "../controllers/usuarios.php";
 include "../database/handler.php";
 
+
+header('Content-Type: application/json; charset=utf-8');
+
+
+
 $router = new AltoRouter();
-
-
 $router->setBasePath('/API_PROYECTO_IES/endpoints');
 
+// TODO: CLASES
 
-$router->map('GET', '/users', function() use ($conexion) {
-    $user = new  Usuario($conexion);
-
-    $user->GetUsers();
-}
-);
+$usuarios = new Usuario($conexion);
 
 
 $match = $router->match();
