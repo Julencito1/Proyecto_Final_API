@@ -1,11 +1,11 @@
 <?php 
 
-
+include "../api/respuestas.php";
 
 class Usuario {
 
     private $con;
-    private $table = "users";
+    private $tabla = "usuarios";
 
     public function __construct($conexion)
     {
@@ -33,7 +33,7 @@ class Usuario {
                 $identificador .= $abc[rand(0, count($abc) - 1)];
             }
     
-            $consultaExiste = $this->con->prepare("SELECT COUNT(*) AS existe FROM " . $this->table . " WHERE identificador = :identificador");
+            $consultaExiste = $this->con->prepare("SELECT COUNT(*) AS existe FROM " . $this->tabla . " WHERE identificador = :identificador");
             
             $consultaExiste->execute(["identificador" => $identificador]);
     
@@ -51,6 +51,26 @@ class Usuario {
         return "";
     
     } 
+
+    public function Login()
+    {
+        $loginData = file_get_contents("php://input");
+        $datos = json_decode($loginData, true);
+
+        $consulta = $this->con->prepare("SELECT COUNT(*) AS coincide FROM " . $this->tabla . " WHERE email = :email AND password = :password");
+        $consulta->execute(["email" => $datos["email"], "password" => $datos["password"]]);
+        $respuesta = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        
+        if ($respuesta["coincide"] === 0) {
+
+            echo RespuestaFail("Las credenciales no coinciden.");
+
+        } else {
+
+            echo EstadoOK();
+        }
+    }
 
     
 }
