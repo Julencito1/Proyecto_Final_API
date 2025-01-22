@@ -7,22 +7,22 @@ define("FAILED", "failed");
 
 function RespuestaOK($mensaje)
 {
-    return json_encode(["code" => CODEOK, "mensaje" => $mensaje, "status" => SUCCESS ]);
+    return json_encode(["code" => CODEOK, "mensaje" => $mensaje, "status" => SUCCESS ], JSON_PRETTY_PRINT);
 }
 
 function EstadoOK() 
 {
-    return json_encode(["code" => CODEOK, "status" => SUCCESS]);
+    return json_encode(["code" => CODEOK, "status" => SUCCESS], JSON_PRETTY_PRINT);
 }
 
 function RespuestaFail($mensaje)
 {
-    return json_encode(["code" => CODEFAIL, "mensaje" => $mensaje, "status" => FAILED ]);
+    return json_encode(["code" => CODEFAIL, "mensaje" => $mensaje, "status" => FAILED ], JSON_PRETTY_PRINT);
 }
 
 function EstadoFAIL() 
 {
-    return json_encode(["code" => CODEFAIL, "status" => FAILED]);
+    return json_encode(["code" => CODEFAIL, "status" => FAILED], JSON_PRETTY_PRINT);
 }
 
 ?>
