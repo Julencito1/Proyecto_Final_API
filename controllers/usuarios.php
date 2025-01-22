@@ -1,6 +1,12 @@
 <?php 
 
+require_once '../vendor/autoload.php';
 include "../api/respuestas.php";
+
+use Firebase\JWT\JWT;
+
+
+
 
 class Usuario {
 
@@ -52,6 +58,22 @@ class Usuario {
     
     } 
 
+    private function GenerarToken($identificador)
+    {
+        $exp = 20000000;
+        $s_key = "18dddd6d-bef4-44fe-9b92-f67030332b3f";
+        $jwt_method = "HS256";
+
+        $datos = [
+            "seed" => $identificador,
+            "exp" => $exp,
+        ];
+
+        $token = JWT::encode($datos, $s_key, $jwt_method);
+
+        return $token;
+    }
+
     public function Login()
     {
         $loginData = file_get_contents("php://input");
@@ -64,11 +86,17 @@ class Usuario {
         
         if ($respuesta["coincide"] === 0) {
 
-            echo RespuestaFail("Las credenciales no coinciden.");
-
+            echo RespuestaFail("Correo o contraseña incorrectos");
+            
         } else {
 
-            echo EstadoOK();
+            $semilla = $this->con->prepare("SELECT identificador FROM " . $this->tabla . " WHERE email = :email AND password = :password");
+            $semilla->execute(["email" => $datos["email"], "password" => $datos["password"]]);
+            $respuestaSemilla = $semilla->fetch(PDO::FETCH_ASSOC);
+
+            $jwt_token = $this->GenerarToken($respuestaSemilla["identificador"]);
+            
+            echo json_encode(["code" => 200, "status" => "success", "token" => $jwt_token], JSON_PRETTY_PRINT);
         }
     }
 
