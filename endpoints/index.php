@@ -17,7 +17,6 @@ if($method == "OPTIONS") {
 
 
 
-
 $router = new AltoRouter();
 $router->setBasePath('/API_PROYECTO_IES/endpoints');
 
@@ -25,10 +24,19 @@ $router->setBasePath('/API_PROYECTO_IES/endpoints');
 
 $usuarios = new Usuario($conexion);
 
-$router->map("POST", "/login", function() use ($usuarios) {
+$router->map("POST", "/signup", function() use ($usuarios) 
+{
+    
+    $usuarios->Registro();
+});
+
+$router->map("POST", "/login", function() use ($usuarios) 
+{
 
     $usuarios->Login();
 });
+
+
 
 
 
