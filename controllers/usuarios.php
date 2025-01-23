@@ -2,6 +2,7 @@
 
 require_once '../vendor/autoload.php';
 include "../api/respuestas.php";
+include "../utils/usuarios/auth.php";
 
 use Firebase\JWT\JWT;
 
@@ -74,29 +75,66 @@ class Usuario {
         return $token;
     }
 
+
+    public function Registro()
+    {
+        $registro = file_get_contents("php://input");
+        $datos = json_decode($registro, true);
+
+        $noExiste = ExisteUsuario($this->con, $datos["email"]);
+        $hash = password_hash($datos["password"], PASSWORD_DEFAULT);
+        
+        if ($noExiste) {
+
+            $q = "INSERT INTO usuarios(nombre, email, password, identificador) VALUES (:nombre, :email, :password, :identificador)";
+
+            $nuevoUsuario = $this->con->prepare($q);
+            
+            $estado = $nuevoUsuario->execute(["nombre" => $datos["nombre"], "email" => $datos["email"], "password" => $hash, "identificador" => $this->GenerarIdentificador()]);
+            
+
+            if ($estado) {
+
+                echo EstadoOK();
+            } else {
+
+                echo RespuestaFail("Algo ha salido mal");
+            }
+
+        } else {
+
+            echo RespuestaFail("El correo ya está en uso");
+        }
+    }
+
+
     public function Login()
     {
         $loginData = file_get_contents("php://input");
         $datos = json_decode($loginData, true);
 
-        $consulta = $this->con->prepare("SELECT COUNT(*) AS coincide FROM " . $this->tabla . " WHERE email = :email AND password = :password");
-        $consulta->execute(["email" => $datos["email"], "password" => $datos["password"]]);
-        $respuesta = $consulta->fetch(PDO::FETCH_ASSOC);
+        $p_hash = ObtenerPasswordHash($this->con, $datos["email"]);
+    
+        if (in_array("S", $p_hash)) {
 
-        
-        if ($respuesta["coincide"] === 0) {
+            if (!password_verify($datos["password"], $p_hash[0])) {
 
-            echo RespuestaFail("Correo o contraseña incorrectos");
-            
+                echo RespuestaFail("Correo o contraseña incorrectosc");
+                
+            } else {
+    
+                $semilla = $this->con->prepare("SELECT identificador FROM " . $this->tabla . " WHERE email = :email");
+                $semilla->execute(["email" => $datos["email"]]);
+                $respuestaSemilla = $semilla->fetch(PDO::FETCH_ASSOC);
+    
+                $jwt_token = $this->GenerarToken($respuestaSemilla["identificador"]);
+                
+                echo json_encode(["code" => 200, "status" => "success", "token" => $jwt_token], JSON_PRETTY_PRINT);
+            }
+
         } else {
 
-            $semilla = $this->con->prepare("SELECT identificador FROM " . $this->tabla . " WHERE email = :email AND password = :password");
-            $semilla->execute(["email" => $datos["email"], "password" => $datos["password"]]);
-            $respuestaSemilla = $semilla->fetch(PDO::FETCH_ASSOC);
-
-            $jwt_token = $this->GenerarToken($respuestaSemilla["identificador"]);
-            
-            echo json_encode(["code" => 200, "status" => "success", "token" => $jwt_token], JSON_PRETTY_PRINT);
+            echo RespuestaFail("Correo o contraseña incorrectos");
         }
     }
 
