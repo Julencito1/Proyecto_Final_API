@@ -5,6 +5,11 @@ define("SUCCESS", "success");
 define("CODEFAIL", 500);
 define("FAILED", "failed");
 
+function InternalServerError() 
+{
+    return json_encode(["code" => CODEOK, "mensaje" => "Algo ha salido mal", "status" => SUCCESS ], JSON_PRETTY_PRINT);
+}
+
 function RespuestaOK($mensaje)
 {
     return json_encode(["code" => CODEOK, "mensaje" => $mensaje, "status" => SUCCESS ], JSON_PRETTY_PRINT);
