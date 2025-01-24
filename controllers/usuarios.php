@@ -115,26 +115,34 @@ class Usuario {
 
         $p_hash = ObtenerPasswordHash($this->con, $datos["email"]);
     
-        if (in_array("S", $p_hash)) {
+        if(is_array($p_hash)) 
+        {
 
-            if (!password_verify($datos["password"], $p_hash[0])) {
+            if (in_array("S", $p_hash)) {
 
-                echo RespuestaFail("Correo o contraseña incorrectosc");
-                
+                if (!password_verify($datos["password"], $p_hash[0])) {
+    
+                    echo RespuestaFail("Correo o contraseña incorrectos");
+                    
+                } else {
+        
+                    $semilla = $this->con->prepare("SELECT identificador FROM " . $this->tabla . " WHERE email = :email");
+                    $semilla->execute(["email" => $datos["email"]]);
+                    $respuestaSemilla = $semilla->fetch(PDO::FETCH_ASSOC);
+        
+                    $jwt_token = $this->GenerarToken($respuestaSemilla["identificador"]);
+                    
+                    echo json_encode(["code" => 200, "status" => "success", "token" => $jwt_token], JSON_PRETTY_PRINT);
+                }
+    
             } else {
     
-                $semilla = $this->con->prepare("SELECT identificador FROM " . $this->tabla . " WHERE email = :email");
-                $semilla->execute(["email" => $datos["email"]]);
-                $respuestaSemilla = $semilla->fetch(PDO::FETCH_ASSOC);
-    
-                $jwt_token = $this->GenerarToken($respuestaSemilla["identificador"]);
-                
-                echo json_encode(["code" => 200, "status" => "success", "token" => $jwt_token], JSON_PRETTY_PRINT);
+                echo RespuestaFail("Correo o contraseña incorrectos");
             }
 
         } else {
 
-            echo RespuestaFail("Correo o contraseña incorrectos");
+            return InternalServerError();
         }
     }
 
