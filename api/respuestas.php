@@ -7,27 +7,27 @@ define("FALLIDO", "fallido");
 
 function RespuestaOK($mensaje)
 {
-    return json_encode(["code" => CODIGO_OK, "mensaje" => $mensaje, "status" => EXITO ], JSON_PRETTY_PRINT);
+    return json_encode(["codigo" => CODIGO_OK, "mensaje" => $mensaje, "estado" => EXITO ], JSON_PRETTY_PRINT);
 }
 
 function EstadoOK() 
 {
-    return json_encode(["code" => CODIGO_OK, "status" => EXITO], JSON_PRETTY_PRINT);
+    return json_encode(["codigo" => CODIGO_OK, "estado" => EXITO], JSON_PRETTY_PRINT);
 }
 
 function RespuestaFail($mensaje)
 {
-    return json_encode(["code" => CODIGO_FAIL, "mensaje" => $mensaje, "status" => FALLIDO ], JSON_PRETTY_PRINT);
+    return json_encode(["codigo" => CODIGO_FAIL, "mensaje" => $mensaje, "estado" => FALLIDO ], JSON_PRETTY_PRINT);
 }
 
 function EstadoFAIL() 
 {
-    return json_encode(["code" => CODIGO_FAIL, "status" => FALLIDO], JSON_PRETTY_PRINT);
+    return json_encode(["codigo" => CODIGO_FAIL, "estado" => FALLIDO], JSON_PRETTY_PRINT);
 }
 
 function InternalServerError() 
 {
-    return json_encode(["code" => CODIGO_FAIL, "mensaje" => "Algo ha salido mal", "status" => FALLIDO], JSON_PRETTY_PRINT);
+    return json_encode(["codigo" => CODIGO_FAIL, "mensaje" => "Algo ha salido mal", "estado" => FALLIDO], JSON_PRETTY_PRINT);
 }
 
 
