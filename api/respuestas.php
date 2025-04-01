@@ -1,33 +1,34 @@
 <?php
 
-define("CODEOK", 200);
-define("SUCCESS", "success");
-define("CODEFAIL", 500);
-define("FAILED", "failed");
-
-function InternalServerError() 
-{
-    return json_encode(["code" => CODEOK, "mensaje" => "Algo ha salido mal", "status" => SUCCESS ], JSON_PRETTY_PRINT);
-}
+define("CODIGO_OK", 200);
+define("EXITO", "exito");
+define("CODIGO_FAIL", 500);
+define("FALLIDO", "fallido");
 
 function RespuestaOK($mensaje)
 {
-    return json_encode(["code" => CODEOK, "mensaje" => $mensaje, "status" => SUCCESS ], JSON_PRETTY_PRINT);
+    return json_encode(["code" => CODIGO_OK, "mensaje" => $mensaje, "status" => EXITO ], JSON_PRETTY_PRINT);
 }
 
 function EstadoOK() 
 {
-    return json_encode(["code" => CODEOK, "status" => SUCCESS], JSON_PRETTY_PRINT);
+    return json_encode(["code" => CODIGO_OK, "status" => EXITO], JSON_PRETTY_PRINT);
 }
 
 function RespuestaFail($mensaje)
 {
-    return json_encode(["code" => CODEFAIL, "mensaje" => $mensaje, "status" => FAILED ], JSON_PRETTY_PRINT);
+    return json_encode(["code" => CODIGO_FAIL, "mensaje" => $mensaje, "status" => FALLIDO ], JSON_PRETTY_PRINT);
 }
 
 function EstadoFAIL() 
 {
-    return json_encode(["code" => CODEFAIL, "status" => FAILED], JSON_PRETTY_PRINT);
+    return json_encode(["code" => CODIGO_FAIL, "status" => FALLIDO], JSON_PRETTY_PRINT);
 }
+
+function InternalServerError() 
+{
+    return json_encode(["code" => CODIGO_FAIL, "mensaje" => "Algo ha salido mal", "status" => FALLIDO], JSON_PRETTY_PRINT);
+}
+
 
 ?>
