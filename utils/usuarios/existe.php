@@ -1,13 +1,22 @@
 <?php
 
-namespace Utils\Usuarios\Existe;
+namespace Utils\Usuarios;
 use Controllers\Usuarios\Usuarios;
 use PDO;
 
-class Existe extends Usuarios
+class Existe
 {
+    protected $con;
+    protected $usuarios;
 
-    protected function ExisteUsuario($email): bool
+    
+    public function __construct(PDO $conexion, Usuarios $usuarios)
+    {
+        $this->con = $conexion;  
+        $this->usuarios = $usuarios;  
+    }
+
+    public function ExisteUsuario($email): bool
     {
         $q = "SELECT COUNT(*) AS existe FROM usuarios WHERE email = :email";
 
