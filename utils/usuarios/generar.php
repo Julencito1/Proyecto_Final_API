@@ -1,19 +1,26 @@
 <?php
 
 
-namespace Utils\Usuarios\Generar;
-require_once '../../vendor/autoload.php';
-include "../caracteres/caracteres.php";
+namespace Utils\Usuarios;
 use Controllers\Usuarios\Usuarios;
 use Utils\Caracteres\Caracteres;
 use Firebase\JWT\JWT;
 use PDO;
 
 
-class Generar extends Usuarios
+class Generar 
 {
 
-    protected function GenerarIdentificador()
+    protected $con;
+    protected $usuarios;
+    
+    public function __construct(PDO $conexion, Usuarios $usuarios)
+    {
+        $this->con = $conexion;  
+        $this->usuarios = $usuarios;  
+    }
+
+    public function GenerarIdentificador()
     {
 
         $estado = true;
@@ -26,7 +33,7 @@ class Generar extends Usuarios
                 $identificador .= Caracteres::$letras_numeros[rand(0, count(Caracteres::$letras_numeros) - 1)];
             }
 
-            $consultaExiste = $this->con->prepare("SELECT COUNT(*) AS existe FROM " . self::$tabla . " WHERE identificador = :identificador");
+            $consultaExiste = $this->con->prepare("SELECT COUNT(*) AS existe FROM " . Usuarios::$tabla . " WHERE identificador = :identificador");
 
             $consultaExiste->execute(["identificador" => $identificador]);
 
@@ -43,9 +50,9 @@ class Generar extends Usuarios
 
     }
 
-    protected function GenerarToken($identificador)
+    public function GenerarToken($identificador)
     {
-        $exp = 20000000;
+        $exp = time() + 10000;
         $s_key = "18dddd6d-bef4-44fe-9b92-f67030332b3f";
         $jwt_method = "HS256";
 
@@ -57,6 +64,23 @@ class Generar extends Usuarios
         $token = JWT::encode($datos, $s_key, $jwt_method);
 
         return $token;
+    }
+
+    public function GenerarAvatar(): string
+    {
+        $avatares = [
+            "newtube_avatar1.png",
+            "newtube_avatar2.png",
+            "newtube_avatar3.png",
+            "newtube_avatar4.png",
+            "newtube_avatar5.png",
+            "newtube_avatar6.png",
+            "newtube_avatar7.png",
+            "newtube_avatar8.png",
+            "newtube_avatar9.png",
+        ];
+
+        return "http://localhost/" . $avatares[rand(0, count($avatares) - 1)];
     }
 }
 
