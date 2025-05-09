@@ -4,12 +4,25 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitcdc540639fbf1cb4b940a9197d9773c3
+class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
 {
     public static $prefixLengthsPsr4 = array (
         'U' => 
         array (
+            'Utils\\' => 6,
             'Usuarios\\' => 9,
+        ),
+        'S' => 
+        array (
+            'Structs\\' => 8,
+        ),
+        'R' => 
+        array (
+            'Response\\' => 9,
+        ),
+        'M' => 
+        array (
+            'Models\\' => 7,
         ),
         'F' => 
         array (
@@ -17,18 +30,39 @@ class ComposerStaticInitcdc540639fbf1cb4b940a9197d9773c3
         ),
         'C' => 
         array (
+            'Controllers\\' => 12,
             'Conexion\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Utils\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils',
+        ),
         'Usuarios\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controllers/usuarios',
         ),
+        'Structs\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/structs',
+        ),
+        'Response\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/response',
+        ),
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models',
+        ),
         'Firebase\\JWT\\' => 
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers',
         ),
         'Conexion\\' => 
         array (
@@ -44,9 +78,9 @@ class ComposerStaticInitcdc540639fbf1cb4b940a9197d9773c3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitcdc540639fbf1cb4b940a9197d9773c3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitcdc540639fbf1cb4b940a9197d9773c3::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitcdc540639fbf1cb4b940a9197d9773c3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83::$classMap;
 
         }, null, ClassLoader::class);
     }
