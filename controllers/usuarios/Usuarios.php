@@ -2,27 +2,35 @@
 
 namespace Controllers\Usuarios;
 
+use Controllers\Canales\Canales;
 use PDO;
-use Structs\U\Usuarios\EstructuraUsuarios;
-use Utils\Usuarios\Existe\Existe;
-use Utils\Usuarios\Generar\Generar;
-use Utils\Usuarios\Obtener\Obtener;
+use Structs\Usuarios\EstructuraUsuarios;
+use Utils\Auth\Auth;
+use Utils\Usuarios\Existe;
+use Utils\Usuarios\Generar;
+use Utils\Usuarios\Obtener;
+use Models\Usuarios\Modelos;
+include __DIR__ . "../../../response/respuestas.php";
 
 class Usuarios extends EstructuraUsuarios
 {
     protected $con;
-    protected static $tabla = "usuarios";
+    public static $tabla = "usuarios";
     private $ExtraExiste;
     private $ExtraGenerar;
     private $ExtraObtener;
+    private $Canales;
+    private $Modelos;
 
 
     public function __construct($conexion)
     {
         $this->con = $conexion;
-        $this->ExtraExiste = new Existe($conexion);
-        $this->ExtraGenerar = new Generar($conexion);
-        $this->ExtraObtener = new Obtener($conexion);
+        $this->ExtraExiste = new Existe($conexion, $this);
+        $this->ExtraGenerar = new Generar($conexion, $this);
+        $this->ExtraObtener = new Obtener($conexion, $this);
+        $this->Canales = new Canales($conexion);
+        $this->Modelos = new Modelos($this);
     }
 
     public function Registro()
@@ -31,18 +39,39 @@ class Usuarios extends EstructuraUsuarios
         $datos = json_decode($registro, true);
 
         $noExiste = $this->ExtraExiste->ExisteUsuario($datos["email"]);
-        $hash = password_hash($datos["contrase�a"], PASSWORD_DEFAULT);
+        $hash = password_hash($datos["password"], PASSWORD_DEFAULT);
 
         if ($noExiste) {
 
-            $q = "INSERT INTO usuarios(nombre, email, contrase�a, identificador) VALUES (:nombre, :email, :contrase�a, :identificador)";
+            $ident = $this->ExtraGenerar->GenerarIdentificador();
+            $nombre_pasado = $datos['nombre'];
+            $email_pasado = $datos['email'];
+
+
+            $q = "INSERT INTO usuarios(nombre, email, password, identificador) VALUES (?, ?, ?, ?)";
 
             $nuevoUsuario = $this->con->prepare($q);
+            $nuevoUsuario->bindParam(1, $nombre_pasado);
+            $nuevoUsuario->bindParam(2, $email_pasado);
+            $nuevoUsuario->bindParam(3, $hash);
+            $nuevoUsuario->bindParam(4, $ident);
 
-            $estado = $nuevoUsuario->execute(["nombre" => $datos["nombre"], "email" => $datos["email"], "contrase�a" => $hash, "identificador" => $this->ExtraGenerar->GenerarIdentificador()]);
-
+            $estado = $nuevoUsuario->execute();
 
             if ($estado) {
+
+                $usuarioID = $this->ExtraObtener->ObtenerID($datos['email']);
+
+                if ($usuarioID === 0) {
+                    echo RespuestaFail("Algo ha salido mal");
+                }
+
+                $crearCanal = $this->Canales->CrearCanal($usuarioID, $datos["nombre"]);
+
+                if (!$crearCanal)
+                {
+                    echo RespuestaFail("No se pudo crear la canal");
+                }
 
                 echo EstadoOK();
             } else {
@@ -52,13 +81,15 @@ class Usuarios extends EstructuraUsuarios
 
         } else {
 
-            echo RespuestaFail("El correo ya est� en uso");
+            echo RespuestaFail("El correo ya está en uso");
+
         }
 
     }
 
     public function Login()
     {
+
         $loginData = file_get_contents("php://input");
         $datos = json_decode($loginData, true);
 
@@ -68,13 +99,13 @@ class Usuarios extends EstructuraUsuarios
 
             if (in_array("S", $p_hash)) {
 
-                if (!password_verify($datos["contrase�a"], $p_hash[0])) {
+                if (!password_verify($datos["password"], $p_hash[0])) {
 
-                    echo RespuestaFail("Correo o contrase�a incorrectos");
+                    echo RespuestaFail("Correo o contraseña incorrectos");
 
                 } else {
 
-                    $semilla = $this->con->prepare("SELECT identificador FROM " . $this->tabla . " WHERE email = :email");
+                    $semilla = $this->con->prepare("SELECT identificador FROM " . self::$tabla . " WHERE email = :email");
                     $semilla->execute(["email" => $datos["email"]]);
                     $respuestaSemilla = $semilla->fetch(PDO::FETCH_ASSOC);
 
@@ -85,13 +116,47 @@ class Usuarios extends EstructuraUsuarios
 
             } else {
 
-                echo RespuestaFail("Correo o contrase�a incorrectos");
+                echo RespuestaFail("Correo o contraseña incorrectos");
+
             }
 
         } else {
 
             return InternalServerError();
         }
+    }
+
+    public function DatosUsuario()
+    {
+
+        $headers = getallheaders();
+        $identificador = Auth::ObtenerSemilla($headers);
+
+        if ($identificador === "") {
+
+            echo RespuestaFail("No se han podido obtener los datos.");
+            return;
+        }
+
+        $q = "
+            SELECT u.nombre, u.email, u.avatar, c.nombre_canal 
+                FROM usuarios u
+            LEFT JOIN canales c ON c.usuario_id = u.id
+            WHERE u.identificador = ?;
+        ";
+
+        $datosUsuarios = $this->con->prepare($q);
+        $datosUsuarios->bindParam(1, $identificador);
+        $estado = $datosUsuarios->execute();
+        $respuesta = $datosUsuarios->fetch(PDO::FETCH_ASSOC);
+
+        if (!$estado)
+        {
+         echo EstadoFAIL();
+         return;
+        }
+
+        echo RespuestaOK($this->Modelos->DatosUsuario($respuesta['nombre'], $respuesta['email'], $respuesta['avatar'], $respuesta['nombre_canal']));
     }
 
 
