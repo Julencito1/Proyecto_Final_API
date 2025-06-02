@@ -52,7 +52,7 @@ class Generar
 
     public function GenerarToken($identificador)
     {
-        $exp = time() + 10000;
+        $exp = time() + 1000000;
         $s_key = "18dddd6d-bef4-44fe-9b92-f67030332b3f";
         $jwt_method = "HS256";
 
@@ -69,19 +69,21 @@ class Generar
     public function GenerarAvatar(): string
     {
         $avatares = [
-            "newtube_avatar1.png",
-            "newtube_avatar2.png",
-            "newtube_avatar3.png",
-            "newtube_avatar4.png",
-            "newtube_avatar5.png",
-            "newtube_avatar6.png",
-            "newtube_avatar7.png",
-            "newtube_avatar8.png",
-            "newtube_avatar9.png",
+            "newtube_avatar1.webp",
+            "newtube_avatar2.webp",
+            "newtube_avatar3.webp",
+            "newtube_avatar4.webp",
+            "newtube_avatar5.webp",
+            "newtube_avatar6.webp",
+            "newtube_avatar7.webp",
+            "newtube_avatar8.webp",
+            "newtube_avatar9.webp",
         ];
 
-        return "http://localhost/" . $avatares[rand(0, count($avatares) - 1)];
+        return "http://localhost:8081/file?file=./usuarios/" . $avatares[rand(0, count($avatares) - 1)];
     }
+
+    
 }
 
 

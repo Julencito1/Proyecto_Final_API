@@ -56,15 +56,19 @@ class Generar
 
     }
 
-    public function Portada(): string
+    public function GenerarPortada(): string 
     {
         $portadas = [
-            "a",
-            "b",
-            "c",
+            "portada_newtube1.webp",
+            "portada_newtube2.webp",
+            "portada_newtube3.webp",
+            "portada_newtube4.webp",
+            "portada_newtube5.webp",
+            "portada_newtube6.webp",
+            "portada_newtube7.webp",
         ];
 
-        return $portadas[rand(0, count($portadas) - 1)];
+        return "http://localhost:8081/file?file=./portadas/" .  $portadas[rand(0, count($portadas) - 1)];
     }
 
 

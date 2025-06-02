@@ -46,15 +46,17 @@ class Usuarios extends EstructuraUsuarios
             $ident = $this->ExtraGenerar->GenerarIdentificador();
             $nombre_pasado = $datos['nombre'];
             $email_pasado = $datos['email'];
+            $avatar_random = $this->ExtraGenerar->GenerarAvatar();
 
 
-            $q = "INSERT INTO usuarios(nombre, email, password, identificador) VALUES (?, ?, ?, ?)";
+            $q = "INSERT INTO usuarios(nombre, email, password, identificador, avatar) VALUES (?, ?, ?, ?, ?)";
 
             $nuevoUsuario = $this->con->prepare($q);
             $nuevoUsuario->bindParam(1, $nombre_pasado);
             $nuevoUsuario->bindParam(2, $email_pasado);
             $nuevoUsuario->bindParam(3, $hash);
             $nuevoUsuario->bindParam(4, $ident);
+            $nuevoUsuario->bindParam(5, $avatar_random);
 
             $estado = $nuevoUsuario->execute();
 

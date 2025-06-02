@@ -70,7 +70,7 @@ class Notificaciones extends EstructuraNotificaciones
         $offset = $datos["offset"];
 
         $q = "
-           SELECT n.enlace, n.fecha, v.titulo, v.miniatura, c.nombre_canal, u.avatar FROM notificaciones n LEFT JOIN canales c ON c.id = n.canal_id LEFT JOIN videos v ON v.id = n.video_id LEFT JOIN usuarios u ON u.id = c.usuario_id WHERE u.identificador = ? AND n.fecha >= DATE_SUB(NOW(), INTERVAL 1 WEEK) LIMIT " . $limit . " OFFSET ". $offset . ";
+           SELECT n.enlace, n.fecha, v.titulo, v.miniatura, c.nombre_canal, u.avatar FROM notificaciones n LEFT JOIN canales c ON c.id = n.canal_id LEFT JOIN videos v ON v.id = n.video_id LEFT JOIN usuarios u ON u.id = c.usuario_id WHERE u.identificador = ? AND n.fecha >= DATE_SUB(NOW(), INTERVAL 1 WEEK) ORDER BY n.fecha DESC LIMIT " . $limit . " OFFSET ". $offset . ";
         ";
 
         $obtenerNotificaciones = $this->con->prepare($q);

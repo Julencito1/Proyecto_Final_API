@@ -83,6 +83,32 @@ class Obtener
 
     }
 
+    public static function IdPorCanalId($id, $cx): int 
+    {
+        $canalID = $id;
+
+        if ($id === "") 
+        {
+            return 0;
+        }
+
+        $q = "
+            SELECT usuario_id FROM canales WHERE id = ?
+        ";
+
+        $obtenerID = $cx->prepare($q);
+        $obtenerID->bindParam(1, $canalID);
+        $estado = $obtenerID->execute();
+        $respuesta = $obtenerID->fetch(PDO::FETCH_ASSOC);
+
+        if (!$estado)
+        {
+            return 0;
+        }
+
+        return $respuesta["usuario_id"];
+    }
+
 
 }
 

@@ -3,6 +3,8 @@
 
 namespace Models\Canales;
 
+use Utils\Time\Time;
+
 class Modelos
 {
 
@@ -42,7 +44,7 @@ class Modelos
     }
 
 
-    public static function VideosCanal($titulo, $identificador, $miniatura, $visitas, $fecha_creacion, $duracion, $canal)
+    public static function VideosCanal($guardado, $titulo, $identificador, $miniatura, $visitas, $fecha_creacion, $duracion, $canal)
     {
         return [
             "canal" => [
@@ -58,7 +60,34 @@ class Modelos
                     ],
                     "estadisticas" => [
                         "visitas" => $visitas,
-                        "duracion" => $duracion,
+                        "duracion" => Time::SegundosAMinutos($duracion),
+                        "guardado" => $guardado,
+                        "fecha" => [
+                            "fecha_creacion" => $fecha_creacion,
+                        ]
+                    ]
+                ]
+            ]
+        ];
+    }
+
+    public static function VideosPrivadosCanal($titulo, $identificador, $miniatura, $visitas, $fecha_creacion, $duracion, $canal)
+    {
+        return [
+            "canal" => [
+                "videos" => [
+                    "contenido" => [
+                        "titulo" => $titulo,
+                    ],
+                    "link" => [
+                        "ruta" => $identificador,
+                    ],
+                    "media" => [
+                        "miniatura" => $miniatura,
+                    ],
+                    "estadisticas" => [
+                        "visitas" => $visitas,
+                        "duracion" => Time::SegundosAMinutos($duracion),
                         "fecha" => [
                             "fecha_creacion" => $fecha_creacion,
                         ]
@@ -82,6 +111,26 @@ class Modelos
                     ]
                 ]
             ]
+        ];
+    }
+
+    public static function ResultadosBusqueda($nombre_canal, $descripcion, $nombre, $avatar, $total_suscriptores)
+    {
+        return [
+            "nombre_canal" => $nombre_canal,
+            "usuario" => [
+                "nombre" => $nombre,
+                "media" => [
+                    "avatar" => $avatar,
+                ]
+            ],
+            "info" => [
+                "descripcion" => $descripcion,
+            ],
+            "estadisticas" => [
+                "total_suscriptores" => $total_suscriptores,
+            ],
+            "tipo" => "canal",
         ];
     }
 }

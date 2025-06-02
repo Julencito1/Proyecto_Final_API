@@ -8,6 +8,7 @@ use Structs\Suscripciones\EstructuraSuscripciones;
 use Models\Suscripciones\Modelos;
 use Utils\Auth\Auth;
 use Utils\Canales\Obtener as CanalesObtener;
+use Utils\Paginacion\Paginacion;
 use Utils\Usuarios\Obtener;
 
 class Suscripciones extends EstructuraSuscripciones
@@ -70,6 +71,75 @@ class Suscripciones extends EstructuraSuscripciones
 
 	}
 
+    public function ObtenerSuscripciones()
+    {
+        $usuario = file_get_contents("php://input");
+        $datos = json_decode($usuario, true);
+
+        $headers = getallheaders();
+        $identificador = Auth::ObtenerSemilla($headers);
+
+        if ($identificador === "") {
+
+            echo RespuestaFail("No se han podido obtener los datos.");
+            return;
+        }
+
+        $offset = $datos["offset"];
+
+        $usuarioId = Obtener::Id($identificador, $this->con);
+
+        $q = "
+        SELECT 
+            u.nombre,
+            u.avatar,
+            c.nombre_canal
+        FROM suscripciones s
+        LEFT JOIN canales c ON c.id = s.canal_id
+        LEFT JOIN usuarios u ON u.id = c.usuario_id
+        WHERE s.usuario_id = ?
+        LIMIT 20 OFFSET ". $offset ."
+        ";
+
+        $obtenerCanales = $this->con->prepare($q);
+        $obtenerCanales->bindParam(1, $usuarioId);
+        $estado = $obtenerCanales->execute();
+        $respuesta = $obtenerCanales->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!$estado)
+        {
+            echo EstadoFAIL();
+            return;
+        }
+
+        $canales = [];
+
+        for ($o = 0; $o < count($respuesta); $o++)
+        {
+
+            array_push($canales, Modelos::CanalesQueSigo($respuesta[$o]["nombre"], $respuesta[$o]["avatar"], $respuesta[$o]["nombre_canal"]));
+        }
+
+        $mas = Paginacion::ContieneMas(
+            "
+        SELECT 
+            u.nombre,
+            u.avatar,
+            c.nombre_canal
+        FROM suscripciones s
+        LEFT JOIN canales c ON c.id = s.canal_id
+        LEFT JOIN usuarios u ON u.id = c.usuario_id
+        WHERE s.usuario_id = ?
+        LIMIT 20 OFFSET ". $offset+20 ."
+        ", $this->con, $usuarioId
+        );
+
+        echo RespuestaOK(
+            ["suscripciones" => $canales,"mas" => $mas]
+        );
+
+    }
+
     public function Suscribirse() 
     {
 
@@ -91,32 +161,40 @@ class Suscripciones extends EstructuraSuscripciones
             return;
         }
 
-        $usuarioID = Obtener::Id($identificador, $this->con);
-        $canalID = CanalesObtener::Id($datos["canal"], $this->con);
+        $estadoSuscripcion = CanalesObtener::EsSuscriptor($identificador, $datos["canal"], $this->con);
 
-        if ($usuarioID === 0 || $canalID === 0) {
-
-            echo EstadoFAIL();
-            return;
-        }
-
-        $q = "
-        INSERT INTO suscripciones (usuario_id, canal_id) VALUES (?, ?)
-        ";
-
-        $accion = $this->con->prepare($q);
-        $accion->bindParam(1, $usuarioID);
-        $accion->bindParam(2, $canalID);
-        $estado = $accion->execute();
-        
-
-        if (!$estado) 
+        if (!$estadoSuscripcion)
         {
-            echo EstadoFAIL();
-            return;
-        }
+            $usuarioID = Obtener::Id($identificador, $this->con);
+            $canalID = CanalesObtener::Id($datos["canal"], $this->con);
 
-        echo EstadoOK();
+            if ($usuarioID === 0 || $canalID === 0) {
+
+                echo EstadoFAIL();
+                return;
+            }
+
+            $q = "
+            INSERT INTO suscripciones (usuario_id, canal_id) VALUES (?, ?)
+            ";
+
+            $accion = $this->con->prepare($q);
+            $accion->bindParam(1, $usuarioID);
+            $accion->bindParam(2, $canalID);
+            $estado = $accion->execute();
+            
+
+            if (!$estado) 
+            {
+                echo EstadoFAIL();
+                return;
+            }
+
+            echo EstadoOK();
+        } else {
+
+            echo EstadoFAIL();
+        }
 
     }
 
@@ -141,31 +219,39 @@ class Suscripciones extends EstructuraSuscripciones
             return;
         }
 
-        $usuarioID = Obtener::Id($identificador, $this->con);
-        $canalID = CanalesObtener::Id($datos["canal"], $this->con);
+        $estadoSuscripcion = CanalesObtener::EsSuscriptor($identificador, $datos["canal"], $this->con);
 
-        if ($usuarioID === 0 || $canalID === 0) {
-
-            echo EstadoFAIL();
-            return;
-        }
-
-        $q = "
-        DELETE FROM suscripciones WHERE usuario_id = ? AND canal_id = ?
-        ";
-
-        $accion = $this->con->prepare($q);
-        $accion->bindParam(1, $usuarioID);
-        $accion->bindParam(2, $canalID);
-        $estado = $accion->execute();
-        
-
-        if (!$estado) 
+        if ($estadoSuscripcion)
         {
-            echo EstadoFAIL();
-            return;
-        }
+            $usuarioID = Obtener::Id($identificador, $this->con);
+            $canalID = CanalesObtener::Id($datos["canal"], $this->con);
 
-        echo EstadoOK();
+            if ($usuarioID === 0 || $canalID === 0) {
+
+                echo EstadoFAIL();
+                return;
+            }
+
+            $q = "
+            DELETE FROM suscripciones WHERE usuario_id = ? AND canal_id = ?
+            ";
+
+            $accion = $this->con->prepare($q);
+            $accion->bindParam(1, $usuarioID);
+            $accion->bindParam(2, $canalID);
+            $estado = $accion->execute();
+            
+
+            if (!$estado) 
+            {
+                echo EstadoFAIL();
+                return;
+            }
+
+            echo EstadoOK();
+
+        } else {
+            echo EstadoFAIL();
+        }
     }
 }

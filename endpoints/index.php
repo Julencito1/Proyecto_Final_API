@@ -2,13 +2,22 @@
 
 require_once "../vendor/autoload.php";
 
+
+use Controllers\Buscar\Buscar;
+use Controllers\Categorias\Categorias;
+use Controllers\Comentarios\Comentarios;
+use Controllers\ComentariosGustados\ComentariosGustados;
+use Controllers\ComentariosHijosGustados\ComentariosHijosGustados;
+use Controllers\Historial\Historial;
 use Controllers\Notificaciones\Notificaciones;
+use Controllers\RespuestasComentarios\RespuestasComentarios;
 use Controllers\Usuarios\Usuarios;
 use Controllers\Suscripciones\Suscripciones;
 use Controllers\Canales\Canales;
 use Conexion\Database;
-
-
+use Controllers\Videos\Videos;
+use Controllers\VideosGuardados\VideosGuardados;
+use Controllers\VideosMarcados\VideosMarcados;
 
 header('Content-Type: application/json; charset=utf-8');
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
@@ -35,6 +44,16 @@ $usuarios = new Usuarios($con);
 $notificaciones = new Notificaciones($con);
 $suscripciones = new Suscripciones($con);
 $canales = new Canales($con);
+$videos_guardados = new VideosGuardados($con);
+$historial = new Historial($con);
+$videos = new Videos($con);
+$videosmarcados = new VideosMarcados($con);
+$comentarios = new Comentarios($con);
+$comentarios_gustado = new ComentariosGustados($con);
+$respuestas_comentarios = new RespuestasComentarios($con);
+$comentarios_hijos_gustados = new ComentariosHijosGustados($con);
+$buscar = new Buscar($con);
+$categorias = new Categorias($con);
 
 $router->map('POST', '/signup', function() use ($usuarios)
     {
@@ -91,6 +110,12 @@ $router->map('POST', '/canal/quitar/suscribirse', function() use ($suscripciones
     }
 );
 
+$router->map('POST', '/suscripciones/obtener', function() use ($suscripciones)
+    {
+        $suscripciones->ObtenerSuscripciones();
+    }
+);
+
 $router->map('POST', '/canales/datos', function() use ($canales)
     {
         $canales->DatosCanal();
@@ -114,6 +139,176 @@ $router->map('POST', '/canal/sobremi', function() use ($canales)
         $canales->SobreMi();
     }
 );
+
+$router->map('PUT', '/canal/videos/publicar', function() use ($canales)
+    {
+        $canales->HacerPublicoVideo();
+    }
+);
+
+$router->map('PUT', '/canal/videos/ocultar', function() use ($canales)
+    {
+        $canales->OcultarVideo();
+    }
+);
+
+$router->map('DELETE', '/canal/videos/borrar', function() use ($canales)
+    {
+        $canales->BorrarVideo();
+    }
+);
+
+$router->map('POST', '/canal/videos/guardar', function() use ($canales)
+    {
+        $canales->GuardarVideo();
+    }
+);
+
+$router->map('POST', '/canal/videos/quitar', function() use ($canales)
+    {
+        $canales->QuitarVideo();
+    }
+);
+
+$router->map('POST', '/canal/videos/inicio', function() use ($canales)
+    {
+        $canales->InicioCanal();
+    }
+);
+
+$router->map('POST', '/videos/guardados/obtener', function() use ($videos_guardados)
+    {
+        $videos_guardados->VideosGuardados();
+    }
+);
+
+$router->map('DELETE', '/videos/guardados/borrar', function() use ($videos_guardados)
+    {
+        $videos_guardados->QuitarVideoGuardado();
+    }
+);
+
+$router->map('POST', '/videos/datos/video', function() use ($videos)
+    {
+        $videos->ObtenerDatosVideo();
+    }
+);
+
+$router->map('POST', '/videos/estadisticas', function() use ($videos)
+    {
+        $videos->Estadisticas();
+    }
+);
+
+$router->map('POST', '/videos/megusta', function() use ($videos)
+    {
+        $videos->MeGusta();
+    }
+);
+
+$router->map('POST', '/videos/nomegusta', function() use ($videos)
+    {
+        $videos->NoMeGusta();
+    }
+);
+
+$router->map('POST', '/videos/quitar/marcado', function() use ($videos)
+    {
+        $videos->QuitarMarcado();
+    }
+);
+
+$router->map('POST', '/videos/recomendados/video', function() use ($videos)
+    {
+        $videos->RecomendacionVideosVideo();
+    }
+);
+
+$router->map('POST', '/historial/almacenar', function() use ($historial)
+    {
+        $historial->AlmacenarHistorial();
+    }
+);
+
+$router->map('POST', '/obtener/comentarios', function() use ($comentarios): void
+    {
+        $comentarios->ObtenerComentarios();
+    }
+);
+
+$router->map('POST', '/publicar/comentario', function() use ($comentarios): void
+    {
+        $comentarios->PublicarComentario();
+    }
+);
+
+$router->map('POST', '/obtener/comentarios/marcados', function() use ($comentarios): void
+    {
+        $comentarios->ObtenerComentariosMarcados();
+    }
+);
+
+$router->map('POST', '/comentarios/marcar', function() use ($comentarios_gustado): void
+    {
+        $comentarios_gustado->MarcadoSiComentario();
+    }
+);
+
+$router->map('POST', '/comentarios/marcar/no', function() use ($comentarios_gustado): void
+    {
+        $comentarios_gustado->MarcadoNoComentario();
+    }
+);
+
+$router->map('POST', '/comentarios/hijos/publicar', function() use ($respuestas_comentarios): void
+    {
+        $respuestas_comentarios->PublicarComentarioHijo();
+    }
+);
+
+$router->map('POST', '/comentarios/hijos/marcar', function() use ($comentarios_hijos_gustados): void
+    {
+        $comentarios_hijos_gustados->MarcadoSiComentario();
+    }
+);
+
+$router->map('POST', '/comentarios/hijos/marcar/no', function() use ($comentarios_hijos_gustados): void
+    {
+        $comentarios_hijos_gustados->MarcadoNoComentario();
+    }
+);
+
+$router->map('POST', '/busqueda', function() use ($buscar): void
+    {
+        $buscar->Resultados();
+    }
+);
+
+$router->map('GET', '/categorias/top', function() use ($categorias): void
+    {
+        $categorias->TopCategorias();
+    }
+);
+
+$router->map('POST', '/videos/categorias/obtener', function() use ($categorias): void
+    {
+        $categorias->VideosCategoria();
+    }
+);
+
+$router->map('GET', '/categorias/todas/obtener', function() use ($categorias): void
+    {
+        $categorias->ObtenerCategorias();
+    }
+);
+
+$router->map('POST', '/videos/marcados/obtener', function() use ($videosmarcados): void
+    {
+        $videosmarcados->ObtenerVideosMarcados();
+    }
+);
+
+
 
 $coincide = $router->match();
 

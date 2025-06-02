@@ -16,9 +16,9 @@ function EstadoOK()
     return json_encode(["codigo" => CODIGO_OK, "estado" => EXITO], JSON_PRETTY_PRINT);
 }
 
-function RespuestaFail($mensaje)
+function RespuestaFail($mensaje, $codigo = CODIGO_FAIL)
 {
-    return json_encode(["codigo" => CODIGO_FAIL, "mensaje" => $mensaje, "estado" => FALLIDO], JSON_PRETTY_PRINT);
+    return json_encode(["codigo" => $codigo, "mensaje" => $mensaje, "estado" => FALLIDO], JSON_PRETTY_PRINT);
 }
 
 function EstadoFAIL()

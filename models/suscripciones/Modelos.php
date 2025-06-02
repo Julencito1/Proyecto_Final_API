@@ -39,5 +39,18 @@ class Modelos
             ],
         ];
     }
+
+    public static function CanalesQueSigo($nombre, $avatar, $nombre_canal)
+    {
+        return [
+            "nombre" => $nombre,
+            "media" => [
+                "avatar" => $avatar,
+            ],
+            "canal" => [
+                "nombre_canal" => $nombre_canal,
+            ]
+        ];
+    }
 }
 
