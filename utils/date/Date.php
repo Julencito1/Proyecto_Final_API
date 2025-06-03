@@ -2,6 +2,8 @@
 
 namespace Utils\Date;
 
+use DateTime;
+
 class Date {
 
     public static function Registro($fecha): string
@@ -27,5 +29,49 @@ class Date {
         $mes = explode("-", $fecha_solo)[1];
 
         return $meses[$mes] . ", " . $year;
+    }
+
+    public static function TiempoRelativo($fecha): string
+    {
+
+        $actual = new DateTime();
+        $fecha_pasada  = new DateTime($fecha);
+
+        $diferencia = $actual->diff($fecha_pasada);
+        $mensaje = "";
+
+        $unidadesM = [
+            "y" => "año",
+            "m" => "mes",
+            "d" => "día",
+            "h" => "hora",
+            "i" => "minuto",
+            "s" => "segundo",
+        ];
+
+        foreach ($diferencia as $x => $y)
+        {
+            if ($y > 0)
+            {
+            
+                if ($y > 1 && $x === "m")
+                {
+                    $mensaje = "hace " . $y . " " . $unidadesM[$x] . "es";
+                } else if ($y > 1 && $x !== "m") {
+
+                    $mensaje = "hace " . $y . " " . $unidadesM[$x] . "s";
+                } else if ($y > 1 && !in_array($y, $unidadesM)) 
+                {
+                    $mensaje = "hace un momento";
+                }
+                else {
+                    $mensaje = "hace " . $y . " " . $unidadesM[$x];
+                }
+
+                break;
+            }
+        }
+
+        return $mensaje;
     }
 }
