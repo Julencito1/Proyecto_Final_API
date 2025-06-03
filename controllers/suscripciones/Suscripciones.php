@@ -42,6 +42,7 @@ class Suscripciones extends EstructuraSuscripciones
             LEFT JOIN usuarios uc ON uc.id = s.usuario_id
         	WHERE
         		uc.identificador = ?
+            LIMIT 4 OFFSET 0
         ";
 
         $listarSidebarSuscripciones = $this->con->prepare($q);
@@ -50,7 +51,7 @@ class Suscripciones extends EstructuraSuscripciones
         $respuesta = $listarSidebarSuscripciones->fetchAll(PDO::FETCH_ASSOC);
 
         $suscripciones = [];
-        $mostrarMas = false;
+
         
         for ($i = 0; $i < count($respuesta); $i++)
         {
@@ -62,12 +63,7 @@ class Suscripciones extends EstructuraSuscripciones
             return;
         }
 
-        if (count($suscripciones) > 4)
-        {
-        	$mostrarMas = true;
-        }
-
-        echo RespuestaOK(Modelos::SidebarSuscripciones($suscripciones, $mostrarMas));
+        echo RespuestaOK(Modelos::SidebarSuscripciones($suscripciones));
 
 	}
 
