@@ -30,12 +30,11 @@ class Modelos
         ];
     }
 
-    public static function SidebarSuscripciones($array, $mostrar)
+    public static function SidebarSuscripciones($array)
     {
         return [
             "suscripciones" => [
                 "listar" => $array,
-                "mostrar" => $mostrar,
             ],
         ];
     }
