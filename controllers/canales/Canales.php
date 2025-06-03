@@ -151,7 +151,7 @@ class Canales extends EstructuraCanales
         $canal = file_get_contents("php://input");
         $datos = json_decode($canal, true);
 
-        $existe = $this->ExtraExiste->ExisteCanal($datos["canal"]);
+        $existe = $this->ExtraExiste->ExisteCanal(nombre_canal: $datos["canal"]);
         $canalActual = $datos["canal"];
         $usuarioID = UsuariosObtener::Id($identificador, $this->con);
         $limit = $datos["limit"];
