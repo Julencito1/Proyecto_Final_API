@@ -2,6 +2,7 @@
 
 namespace Models\VideosGuardados;
 
+use Utils\Date\Date;
 use Utils\Time\Time;
 
 class Modelos {
@@ -21,7 +22,7 @@ class Modelos {
                     "visitas" => $visitas,
                     "duracion" => Time::SegundosAMinutos($duracion),
                     "fecha" => [
-                        "fecha_creacion" => $fecha_creacion,
+                        "fecha_creacion" => Date::TiempoRelativo($fecha_creacion),
                     ],
                 ],
                 "info" => [

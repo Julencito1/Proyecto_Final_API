@@ -3,6 +3,7 @@
 
 namespace Models\Canales;
 
+use Utils\Date\Date;
 use Utils\Time\Time;
 
 class Modelos
@@ -53,7 +54,7 @@ class Modelos
                         "titulo" => $titulo,
                     ],
                     "link" => [
-                        "ruta" => "?canal=" . $canal . "&ref=". $identificador,
+                        "ruta" => $identificador,
                     ],
                     "media" => [
                         "miniatura" => $miniatura,
@@ -63,7 +64,7 @@ class Modelos
                         "duracion" => Time::SegundosAMinutos($duracion),
                         "guardado" => $guardado,
                         "fecha" => [
-                            "fecha_creacion" => $fecha_creacion,
+                            "fecha_creacion" => Date::TiempoRelativo($fecha_creacion),
                         ]
                     ]
                 ]
@@ -89,7 +90,7 @@ class Modelos
                         "visitas" => $visitas,
                         "duracion" => Time::SegundosAMinutos($duracion),
                         "fecha" => [
-                            "fecha_creacion" => $fecha_creacion,
+                            "fecha_creacion" => Date::TiempoRelativo($fecha_creacion),
                         ]
                     ]
                 ]

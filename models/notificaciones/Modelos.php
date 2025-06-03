@@ -3,6 +3,8 @@
 
 namespace Models\Notificaciones;
 
+use Utils\Date\Date;
+
 class Modelos
 {
 
@@ -32,7 +34,7 @@ class Modelos
                     "link" => [
                         "enlace" => $enlace,
                     ],
-                    "fecha" => $fecha,
+                    "fecha" => Date::TiempoRelativo($fecha),
                 ],
                 "contenido" => [
                     "video" => [

@@ -3,6 +3,8 @@
 
 namespace Models\Comentarios;
 
+use Utils\Date\Date;
+
 class Modelos
 {
 
@@ -35,7 +37,7 @@ class Modelos
                 "gustado" => $marcadoComentario,
             ],
             "fecha" => [
-                "fecha_publicacion" => $fecha_publicacion,
+                "fecha_publicacion" => Date::TiempoRelativo($fecha_publicacion),
             ],
             "comentarios_hijos" => $comentariosHijos
         ];
@@ -63,7 +65,7 @@ class Modelos
                 "gustado" => $marcadoComentarioHijo,
             ],
             "fecha" => [
-                "fecha_publicacion" => $fecha_publicacion,
+                "fecha_publicacion" => Date::TiempoRelativo($fecha_publicacion),
             ]
         ];
     }
@@ -86,7 +88,7 @@ class Modelos
                 "tipo" => $tipo,
                 "gustado" => $gustado,
                 "fecha" => [
-                    "fecha_publicacion" => $fecha_publicacion,
+                    "fecha_publicacion" => Date::TiempoRelativo($fecha_publicacion),
                 ]
             ]
         ];

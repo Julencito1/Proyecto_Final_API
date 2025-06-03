@@ -2,6 +2,7 @@
 
 namespace Models\Videos;
 
+use Utils\Date\Date;
 use Utils\Time\Time;
 
 class Modelos {
@@ -51,7 +52,7 @@ class Modelos {
                     "me_gusta" => $me_gusta,
                     "no_megusta" => $no_megusta,
                     "fecha" => [
-                        "fecha_creacion" => $fecha_creacion
+                        "fecha_creacion" => Date::TiempoRelativo($fecha_creacion)
                     ]
                     ],
                     "extra" => [
@@ -78,7 +79,7 @@ class Modelos {
                         "visitas" => $visitas,
                         "duracion" => Time::SegundosAMinutos($duracion),
                         "fecha" => [
-                            "fecha_creacion" => $fecha_creacion,
+                            "fecha_creacion" => Date::TiempoRelativo($fecha_creacion),
                         ]
                         ],
                     "canal" => [
@@ -110,7 +111,7 @@ class Modelos {
                         "visitas" => $visitas,
                         "duracion" => Time::SegundosAMinutos($duracion),
                         "fecha" => [
-                            "fecha_creacion" => $fecha_creacion,
+                            "fecha_creacion" => Date::TiempoRelativo($fecha_creacion),
                         ]
                         ],
                     "canal" => [
