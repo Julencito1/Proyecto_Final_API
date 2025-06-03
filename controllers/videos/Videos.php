@@ -377,11 +377,12 @@ class Videos
             FROM videos v
             LEFT JOIN canales c ON c.id = v.canal_id
             LEFT JOIN usuarios u ON u.id = c.usuario_id
-            WHERE v.estado = 'publico' ". $notIn ." 
+            WHERE v.estado = 'publico' AND v.identificador != ? ". $notIn ." 
             ORDER BY RAND() LIMIT 20;
            ";
 
            $videosRecomendados = $this->con->prepare($q);
+           $videosRecomendados->bindParam(1, $identificador_video);
            $estado = $videosRecomendados->execute();
            $respuesta = $videosRecomendados->fetchAll(PDO::FETCH_ASSOC);
 
@@ -400,7 +401,7 @@ class Videos
             
            }
 
-           $mas = Paginacion::NoParametro(
+           $mas = Paginacion::ContieneMas(
 "
             SELECT
                 v.titulo,
@@ -414,9 +415,9 @@ class Videos
             FROM videos v
             LEFT JOIN canales c ON c.id = v.canal_id
             LEFT JOIN usuarios u ON u.id = c.usuario_id
-            WHERE v.estado = 'publico' ". $notIn ." 
+            WHERE v.estado = 'publico' AND v.identificador != ? ". $notIn ." 
             ORDER BY RAND() LIMIT 20;
-           ", $this->con
+           ", $this->con, $identificador_video
            );
 
            echo RespuestaOK(["videos" => $videosRecomendados, "mas" => $mas]);
