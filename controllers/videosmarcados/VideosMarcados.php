@@ -60,6 +60,7 @@ class VideosMarcados
         LEFT JOIN canales c ON c.id = v.canal_id
         LEFT JOIN usuarios u ON c.usuario_id = u.id
         WHERE v.estado = 'publico' AND vm.usuario_id = ?
+        ORDER BY vm.fecha DESC
         LIMIT 20 OFFSET " . $offset ."
     ";
 
@@ -113,6 +114,7 @@ class VideosMarcados
         LEFT JOIN canales c ON c.id = v.canal_id
         LEFT JOIN usuarios u ON c.usuario_id = u.id
         WHERE v.estado = 'publico' AND vm.usuario_id = ?
+        ORDER BY vm.fecha DESC
         LIMIT 20 OFFSET " . $offset + 20 ."
     ", $this->con, $usuarioId
     );
