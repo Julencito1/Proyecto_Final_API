@@ -3,6 +3,7 @@
 namespace Utils\Date;
 
 use DateTime;
+use DateTimeZone;
 
 class Date {
 
@@ -33,45 +34,41 @@ class Date {
 
     public static function TiempoRelativo($fecha): string
     {
-
-        $actual = new DateTime();
-        $fecha_pasada  = new DateTime($fecha);
+        $zona = new DateTimeZone('Europe/Madrid');
+        $actual = new DateTime('now', $zona);
+        $fecha_pasada = new DateTime($fecha, $zona);
 
         $diferencia = $actual->diff($fecha_pasada);
-        $mensaje = "";
 
-        $unidadesM = [
-            "y" => "año",
-            "m" => "mes",
-            "d" => "día",
-            "h" => "hora",
-            "i" => "minuto",
-            "s" => "segundo",
+        $unidades = [
+            'y' => 'año',
+            'm' => 'mes',
+            'd' => 'día',
+            'h' => 'hora',
+            'i' => 'minuto',
+            's' => 'segundo'
         ];
 
-        foreach ($diferencia as $x => $y)
-        {
-            if ($y > 0)
-            {
-            
-                if ($y > 1 && $x === "m")
-                {
-                    $mensaje = "hace " . $y . " " . $unidadesM[$x] . "es";
-                } else if ($y > 1 && $x !== "m") {
+        foreach ($unidades as $clave => $texto) {
+            $valor = $diferencia->$clave;
 
-                    $mensaje = "hace " . $y . " " . $unidadesM[$x] . "s";
-                } else if ($y > 1 && !in_array($y, $unidadesM)) 
-                {
-                    $mensaje = "hace un momento";
-                }
-                else {
-                    $mensaje = "hace " . $y . " " . $unidadesM[$x];
-                }
+            if ($valor > 0) {
+                
+               if ($texto === "mes") {
 
-                break;
+                    $plural = ($valor > 1) ? $texto . 'es' : $texto;
+                    return "hace $valor $plural";
+
+               } else {
+
+                    $plural = ($valor > 1) ? $texto . 's' : $texto;
+                    return "hace $valor $plural";
+                    
+               }
+                
             }
         }
 
-        return $mensaje;
+        return "hace un momento"; 
     }
 }
