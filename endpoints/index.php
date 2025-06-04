@@ -230,6 +230,12 @@ $router->map('POST', '/historial/almacenar', function() use ($historial)
     }
 );
 
+$router->map('POST', '/historial/obtener', function() use ($historial)
+    {
+        $historial->ObtenerHistorial();
+    }
+);
+
 $router->map('POST', '/obtener/comentarios', function() use ($comentarios): void
     {
         $comentarios->ObtenerComentarios();
