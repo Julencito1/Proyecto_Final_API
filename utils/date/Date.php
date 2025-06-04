@@ -32,6 +32,32 @@ class Date {
         return $meses[$mes] . ", " . $year;
     }
 
+    public static function FechaVisualizacion($fecha): string
+    {
+        $fecha_solo = explode(" ", $fecha)[0];
+
+        $meses = [
+            "01" => "Enero",
+            "02" => "Febrero",
+            "03" => "Marzo",
+            "04" => "Abril",
+            "05" => "Mayo",
+            "06" => "Junio",
+            "07" => "Julio",
+            "08" => "Agosto",
+            "09" => "Septiembre",
+            "10" => "Octubre",
+            "11" => "Noviembre",
+            "12" => "Diciembre",
+        ];
+
+        $year = explode("-", $fecha_solo)[0];
+        $mes = explode("-", $fecha_solo)[1];
+        $dia = explode("-", $fecha_solo)[2];
+
+        return $dia. " " . $meses[$mes] . ", " . $year;
+    }
+
     public static function TiempoRelativo($fecha): string
     {
         $zona = new DateTimeZone('Europe/Madrid');
