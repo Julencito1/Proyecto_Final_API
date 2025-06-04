@@ -71,7 +71,7 @@ class VideosGuardados
         
         $q = "
             SELECT v.titulo,
-                v.identificador,
+                v.identificador AS identificador_video,
                 v.miniatura,
                 v.visitas,
                 v.duracion,
@@ -106,13 +106,13 @@ class VideosGuardados
 
         for ($i = 0; $i < count($respuesta); $i++)
         {
-            array_push($contenedor, Modelos::VideosGuardados($respuesta[$i]["titulo"], $respuesta[$i]["identificador"], $respuesta[$i]["miniatura"], $respuesta[$i]["visitas"], $respuesta[$i]["duracion"], $respuesta[$i]["fecha_creacion"], $respuesta[$i]["nombre_canal"], $respuesta[$i]["avatar"], $respuesta[$i]["nombre"], $respuesta[$i]["identificador"]));
+            array_push($contenedor, Modelos::VideosGuardados($respuesta[$i]["titulo"], $respuesta[$i]["identificador_video"], $respuesta[$i]["miniatura"], $respuesta[$i]["visitas"], $respuesta[$i]["duracion"], $respuesta[$i]["fecha_creacion"], $respuesta[$i]["nombre_canal"], $respuesta[$i]["avatar"], $respuesta[$i]["nombre"], $respuesta[$i]["identificador"]));
         }
 
         $mas = Paginacion::ContieneMas(
     "
                 SELECT v.titulo,
-                    v.identificador,
+                    v.identificador AS identificador_video,
                     v.miniatura,
                     v.visitas,
                     v.duracion,
