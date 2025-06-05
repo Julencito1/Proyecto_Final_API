@@ -429,6 +429,84 @@ class Videos
         }
     }
 
+    public function RecomendacionVideosInicio()
+    {
+
+        $video_inicio = file_get_contents("php://input");
+        $datos = json_decode($video_inicio, true);
+
+        $headers = getallheaders();
+
+        $identificador = Auth::ObtenerSemilla($headers);
+
+        if ($identificador === "") {
+
+            echo RespuestaFail("No se han podido obtener los datos.");
+            return;
+        }
+
+        
+        $identificadores = $datos["identificadores"];
+        $notIn = count($identificadores) > 0 ? "AND v.identificador NOT IN (". join(', ', $identificadores) .")" : " ";
+
+        $q = "
+            SELECT
+                v.titulo,
+                v.identificador,
+                v.miniatura,
+                v.visitas,
+                v.duracion,
+                v.fecha_creacion,
+                u.nombre,
+                u.avatar
+            FROM videos v
+            LEFT JOIN canales c ON c.id = v.canal_id
+            LEFT JOIN usuarios u ON u.id = c.usuario_id
+            WHERE v.estado = 'publico' ". $notIn ." 
+            ORDER BY RAND() LIMIT 20;
+           ";
+
+           $videosRecomendados = $this->con->prepare($q);
+           $estado = $videosRecomendados->execute();
+           $respuesta = $videosRecomendados->fetchAll(PDO::FETCH_ASSOC);
+
+           if (!$estado)
+           {
+            echo EstadoFAIL();
+            return;
+           }
+
+           $videosRecomendados = [];
+
+           for ($i = 0; $i < count($respuesta); $i++)
+           {
+
+            array_push($videosRecomendados, Modelos::VideosRecomendados($respuesta[$i]["titulo"], $respuesta[$i]["identificador"], $respuesta[$i]["miniatura"], $respuesta[$i]["visitas"], $respuesta[$i]["fecha_creacion"], $respuesta[$i]["duracion"], $respuesta[$i]["nombre"], $respuesta[$i]["avatar"]));
+            
+           }
+
+           $mas = Paginacion::NoParametro(
+            "
+                        SELECT
+                            v.titulo,
+                            v.identificador,
+                            v.miniatura,
+                            v.visitas,
+                            v.duracion,
+                            v.fecha_creacion,
+                            u.nombre,
+                            u.avatar
+                        FROM videos v
+                        LEFT JOIN canales c ON c.id = v.canal_id
+                        LEFT JOIN usuarios u ON u.id = c.usuario_id
+                        WHERE v.estado = 'publico' ". $notIn ." 
+                        ORDER BY RAND() LIMIT 20;
+                       ", $this->con,
+                       );
+            
+            echo RespuestaOK(["videos" => $videosRecomendados, "mas" => $mas]);
+    }
+
 
 }
 
