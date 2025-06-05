@@ -739,4 +739,47 @@ class Canales extends EstructuraCanales
         }
     }
 
+    public function ActualizarDescripcion()
+    {
+        $headers = getallheaders();
+
+        $identificador = Auth::ObtenerSemilla($headers);
+
+        if ($identificador === "") {
+
+            echo RespuestaFail("No se han podido obtener los datos.");
+            return;
+        }
+
+        $canal = file_get_contents("php://input");
+        $datos = json_decode($canal, true);
+
+        $existe = $this->ExtraExiste->ExisteCanal($datos["canal"]);
+        $canalActual = $datos["canal"];
+        $descripcionNueva = $datos["descripcion"];
+        $usuarioCanalId = Obtener::Id($canalActual, $this->con);
+
+        if ($existe > 0)
+        {
+
+            $q = "UPDATE canales SET descripcion = ? WHERE id = ?";
+
+            $actualizarDescripcion = $this->con->prepare($q);
+            $actualizarDescripcion->bindParam(1, $descripcionNueva);
+            $actualizarDescripcion->bindParam(2, $usuarioCanalId);
+            $estado = $actualizarDescripcion->execute();
+
+            if (!$estado)
+            {
+                echo EstadoFAIL();
+                return;
+            }
+
+            echo EstadoOK();
+
+        } else {
+            echo RespuestaFail("No se encontró el canal.");
+        }
+    }
+
 }
