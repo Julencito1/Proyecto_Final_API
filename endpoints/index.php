@@ -176,6 +176,12 @@ $router->map('POST', '/canal/videos/inicio', function() use ($canales)
     }
 );
 
+$router->map('PUT', '/canal/actualizar/descripcion', function() use ($canales)
+    {
+        $canales->ActualizarDescripcion();
+    }
+);
+
 $router->map('POST', '/videos/guardados/obtener', function() use ($videos_guardados)
     {
         $videos_guardados->VideosGuardados();
@@ -223,6 +229,13 @@ $router->map('POST', '/videos/recomendados/video', function() use ($videos)
         $videos->RecomendacionVideosVideo();
     }
 );
+
+$router->map('POST', '/videos/recomendados/inicio', function() use ($videos)
+    {
+        $videos->RecomendacionVideosInicio();
+    }
+);
+
 
 $router->map('POST', '/historial/almacenar', function() use ($historial)
     {
