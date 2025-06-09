@@ -16,7 +16,7 @@ class Existe
         $this->usuarios = $usuarios;  
     }
 
-    public function ExisteUsuario($email): bool
+    public function ExisteUsuario($email)
     {
         $q = "SELECT COUNT(*) AS existe FROM usuarios WHERE email = :email";
 
@@ -25,8 +25,8 @@ class Existe
         $consulta->execute(["email" => $email]);
 
         $respuesta = $consulta->fetch(PDO::FETCH_ASSOC);
-
-        return $respuesta["existe"] === 0;
+        
+        return $respuesta["existe"];
     }
 
 }
