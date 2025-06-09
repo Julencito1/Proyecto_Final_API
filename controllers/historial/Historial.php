@@ -3,13 +3,13 @@
 namespace Controllers\Historial;
 use Models\Historial\Modelos;
 use PDO;
-use Utils\Auth\Auth;
-use Utils\Historial\Generar;
-use Utils\Historial\Obtener;
-use Utils\Paginacion\Paginacion;
-use Utils\Usuarios\Obtener as UsuariosObtener;
-use Utils\Videos\Existe;
-use Utils\Videos\Obtener as VideosObtener;
+use Utils\auth\Auth;
+use Utils\historial\Generar;
+use Utils\historial\Obtener;
+use Utils\paginacion\Paginacion;
+use Utils\usuarios\Obtener as UsuariosObtener;
+use Utils\videos\Existe;
+use Utils\videos\Obtener as VideosObtener;
 
 class Historial
 {

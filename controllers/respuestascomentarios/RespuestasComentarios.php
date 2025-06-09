@@ -2,14 +2,13 @@
 
 namespace Controllers\RespuestasComentarios;
 
-use Utils\Auth\Auth;
-use Utils\Canales\Existe;
-use Utils\Comentarios\Obtener as ComentariosObtener;
-use Utils\RespuestasComentarios\Generar;
-use Utils\RespuestasComentarios\Obtener as RespuestasComentariosObtener;
-use Utils\Usuarios\Obtener;
-use Utils\Videos\Existe as VideosExiste;
-use Utils\Videos\Obtener as VideosObtener;
+use Utils\auth\Auth;
+use Utils\comentarios\Obtener as ComentariosObtener;
+use Utils\respuestasComentarios\Generar;
+use Utils\respuestasComentarios\Obtener as RespuestasComentariosObtener;
+use Utils\usuarios\Obtener;
+use Utils\videos\Existe as VideosExiste;
+
 
 class RespuestasComentarios
 {

@@ -4,12 +4,10 @@ namespace Controllers\VideosGuardados;
 
 use Models\VideosGuardados\Modelos;
 use PDO;
-use Utils\Auth\Auth;
-use Utils\Paginacion\Paginacion;
-use Utils\Usuarios\Existe;
-use Utils\Usuarios\Generar;
-use Utils\Usuarios\Obtener;
-use Utils\VideosGuardados\Obtener as VideosGuardadosObtener;
+use Utils\auth\Auth;
+use Utils\paginacion\Paginacion;
+use Utils\usuarios\Obtener;
+use Utils\videosGuardados\Obtener as VideosGuardadosObtener;
 
 class VideosGuardados
 {

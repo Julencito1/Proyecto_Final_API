@@ -2,11 +2,11 @@
 
 namespace Controllers\ComentariosHijosGustados;
 
-use Utils\Auth\Auth;
-use Utils\Comentarios\Obtener as ComentariosObtener;
-use Utils\RespuestasComentarios\Generar;
-use Utils\RespuestasComentarios\Obtener as RespuestasComentariosObtener;
-use Utils\Usuarios\Obtener;
+use Utils\auth\Auth;
+use Utils\comentarios\Obtener as ComentariosObtener;
+use Utils\respuestasComentarios\Generar;
+use Utils\respuestasComentarios\Obtener as RespuestasComentariosObtener;
+use Utils\usuarios\Obtener;
 
 class ComentariosHijosGustados
 {

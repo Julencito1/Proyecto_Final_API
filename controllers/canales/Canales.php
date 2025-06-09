@@ -3,19 +3,19 @@
 namespace Controllers\Canales;
 
 use Structs\canales\EstructuraCanales;
-use Utils\Canales\Existe;
-use Utils\Canales\Generar;
-use Utils\Canales\Obtener;
+use Utils\canales\Existe;
+use Utils\canales\Generar;
+use Utils\canales\Obtener;
 use Models\Canales\Modelos;
 use Models\Suscripciones\Modelos as SuscripcionesModelos;
-use Utils\Auth\Auth;
+use Utils\auth\Auth;
 use PDO;
-use Utils\Date\Date;
-use Utils\Paginacion\Paginacion;
-use Utils\Usuarios\Obtener as UsuariosObtener;
-use Utils\Videos\Obtener as VideosObtener;
-use Utils\VideosGuardados\Generar as VideosGuardadosGenerar;
-use Utils\VideosGuardados\Obtener as VideosGuardadosObtener;
+use Utils\date\Date;
+use Utils\paginacion\Paginacion;
+use Utils\usuarios\Obtener as UsuariosObtener;
+use Utils\videos\Obtener as VideosObtener;
+use Utils\videosGuardados\Generar as VideosGuardadosGenerar;
+use Utils\videosGuardados\Obtener as VideosGuardadosObtener;
 
 
 

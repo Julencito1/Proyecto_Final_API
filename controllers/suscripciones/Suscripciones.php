@@ -6,10 +6,10 @@ namespace Controllers\Suscripciones;
 use PDO;
 use Structs\suscripciones\EstructuraSuscripciones;
 use Models\Suscripciones\Modelos;
-use Utils\Auth\Auth;
-use Utils\Canales\Obtener as CanalesObtener;
-use Utils\Paginacion\Paginacion;
-use Utils\Usuarios\Obtener;
+use Utils\auth\Auth;
+use Utils\canales\Obtener as CanalesObtener;
+use Utils\paginacion\Paginacion;
+use Utils\usuarios\Obtener;
 
 class Suscripciones extends EstructuraSuscripciones
 {

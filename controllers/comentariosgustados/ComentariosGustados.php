@@ -2,11 +2,11 @@
 
 namespace Controllers\ComentariosGustados;
 use PDO;
-use Utils\Auth\Auth;
-use Utils\Comentarios\Obtener as ComentariosObtener;
-use Utils\ComentariosGustados\Generar;
-use Utils\ComentariosGustados\Obtener;
-use Utils\Usuarios\Obtener as UsuariosObtener;
+use Utils\auth\Auth;
+use Utils\comentarios\Obtener as ComentariosObtener;
+use Utils\comentariosGustados\Generar;
+use Utils\comentariosGustados\Obtener;
+use Utils\usuarios\Obtener as UsuariosObtener;
 
 class ComentariosGustados
 {

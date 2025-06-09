@@ -4,9 +4,9 @@ namespace Controllers\VideosMarcados;
 
 use Models\VideosMarcados\Modelos;
 use PDO;
-use Utils\Auth\Auth;
-use Utils\Paginacion\Paginacion;
-use Utils\Usuarios\Obtener;
+use Utils\auth\Auth;
+use Utils\paginacion\Paginacion;
+use Utils\usuarios\Obtener;
 
 class VideosMarcados
 {
