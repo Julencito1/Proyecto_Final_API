@@ -6,11 +6,9 @@
     "autoload": {
         "psr-4": {
             "Conexion\\": "conexion/",
-            "Controllers\\Usuarios\\": "controllers/usuarios",
             "Controllers\\": "controllers/",
             "Structs\\": "structs/",
             "Utils\\": "utils/",
-            "Utils\\Usuarios\\": "utils/usuarios",
             "Response\\": "response/",
             "Models\\": "models/"
         }

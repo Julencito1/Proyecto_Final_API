@@ -9,7 +9,6 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
     public static $prefixLengthsPsr4 = array (
         'U' => 
         array (
-            'Utils\\Usuarios\\' => 15,
             'Utils\\' => 6,
         ),
         'S' => 
@@ -30,17 +29,12 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         ),
         'C' => 
         array (
-            'Controllers\\Usuarios\\' => 21,
             'Controllers\\' => 12,
             'Conexion\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Utils\\Usuarios\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/utils/usuarios',
-        ),
         'Utils\\' => 
         array (
             0 => __DIR__ . '/../..' . '/utils',
@@ -61,10 +55,6 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
-        'Controllers\\Usuarios\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/controllers/usuarios',
-        ),
         'Controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controllers',
@@ -79,7 +69,6 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Conexion\\Conexion' => __DIR__ . '/../..' . '/conexion/Conexion.php',
-        'Controllers\\Usuarios\\Usuarios' => __DIR__ . '/../..' . '/controllers/usuarios/Usuarios.php',
         'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
         'Firebase\\JWT\\CachedKeySet' => __DIR__ . '/..' . '/firebase/php-jwt/src/CachedKeySet.php',
         'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
@@ -92,26 +81,6 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         'Structs\\notificaciones\\EstructuraNotificaciones' => __DIR__ . '/../..' . '/structs/notificaciones/EstructuraNotificaciones.php',
         'Structs\\suscripciones\\EstructuraSuscripciones' => __DIR__ . '/../..' . '/structs/suscripciones/EstructuraSuscripciones.php',
         'Structs\\usuarios\\EstructuraUsuarios' => __DIR__ . '/../..' . '/structs/usuarios/EstructuraUsuarios.php',
-        'Utils\\auth\\Auth' => __DIR__ . '/../..' . '/utils/auth/Auth.php',
-        'Utils\\canales\\Existe' => __DIR__ . '/../..' . '/utils/canales/Existe.php',
-        'Utils\\canales\\Generar' => __DIR__ . '/../..' . '/utils/canales/Generar.php',
-        'Utils\\canales\\Obtener' => __DIR__ . '/../..' . '/utils/canales/Obtener.php',
-        'Utils\\categorias\\Existe' => __DIR__ . '/../..' . '/utils/categorias/Existe.php',
-        'Utils\\categorias\\Obtener' => __DIR__ . '/../..' . '/utils/categorias/Obtener.php',
-        'Utils\\comentarios\\Generar' => __DIR__ . '/../..' . '/utils/comentarios/Generar.php',
-        'Utils\\comentarios\\Obtener' => __DIR__ . '/../..' . '/utils/comentarios/Obtener.php',
-        'Utils\\date\\Date' => __DIR__ . '/../..' . '/utils/date/Date.php',
-        'Utils\\historial\\Generar' => __DIR__ . '/../..' . '/utils/historial/Generar.php',
-        'Utils\\historial\\Obtener' => __DIR__ . '/../..' . '/utils/historial/Obtener.php',
-        'Utils\\paginacion\\Paginacion' => __DIR__ . '/../..' . '/utils/paginacion/Paginacion.php',
-        'Utils\\suscripciones\\Existe' => __DIR__ . '/../..' . '/utils/suscripciones/Existe.php',
-        'Utils\\suscripciones\\Generar' => __DIR__ . '/../..' . '/utils/suscripciones/Generar.php',
-        'Utils\\suscripciones\\Obtener' => __DIR__ . '/../..' . '/utils/suscripciones/Obtener.php',
-        'Utils\\time\\Time' => __DIR__ . '/../..' . '/utils/time/Time.php',
-        'Utils\\usuarios\\Existe' => __DIR__ . '/../..' . '/utils/usuarios/Existe.php',
-        'Utils\\usuarios\\Generar' => __DIR__ . '/../..' . '/utils/usuarios/Generar.php',
-        'Utils\\videos\\Existe' => __DIR__ . '/../..' . '/utils/videos/Existe.php',
-        'Utils\\videos\\Obtener' => __DIR__ . '/../..' . '/utils/videos/Obtener.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
