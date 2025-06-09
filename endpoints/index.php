@@ -2,7 +2,7 @@
 
 require_once "../vendor/autoload.php";
 
-
+use Conexion\Database;
 use Controllers\Buscar\Buscar;
 use Controllers\Categorias\Categorias;
 use Controllers\Comentarios\Comentarios;
@@ -14,7 +14,6 @@ use Controllers\RespuestasComentarios\RespuestasComentarios;
 use Controllers\Usuarios\Usuarios;
 use Controllers\Suscripciones\Suscripciones;
 use Controllers\Canales\Canales;
-use Conexion\Database;
 use Controllers\Videos\Videos;
 use Controllers\VideosGuardados\VideosGuardados;
 use Controllers\VideosMarcados\VideosMarcados;
