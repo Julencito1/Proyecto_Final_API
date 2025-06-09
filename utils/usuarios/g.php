@@ -7,7 +7,7 @@ use Utils\Caracteres\Caracteres;
 use Firebase\JWT\JWT;
 use PDO;
 
-
+/* */
 class Generar 
 {
 
