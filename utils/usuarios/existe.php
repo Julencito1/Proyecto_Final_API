@@ -4,6 +4,7 @@ namespace Utils\Usuarios;
 use Controllers\Usuarios\Usuarios;
 use PDO;
 
+/*  */
 class Existe
 {
     protected $con;
