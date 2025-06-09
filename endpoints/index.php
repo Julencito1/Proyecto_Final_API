@@ -327,6 +327,11 @@ $router->map('POST', '/videos/marcados/obtener', function() use ($videosmarcados
     }
 );
 
+$router->map('GET', '/holaa', function()
+    {
+        echo "hola";
+    }
+);
 
 
 $coincide = $router->match();
