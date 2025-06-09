@@ -2,7 +2,7 @@
 
 require_once "../vendor/autoload.php";
 
-use Conexion\Database;
+use Conexion\Conexion;
 use Controllers\Buscar\Buscar;
 use Controllers\Categorias\Categorias;
 use Controllers\Comentarios\Comentarios;
@@ -35,7 +35,7 @@ if ($method == "OPTIONS") {
 
 $env = parse_ini_file(__DIR__ . '/../.env');
 
-$db = new Database();
+$db = new Conexion();
 $con = $db->Conexion($env["DRIVER"], $env["HOST"], $env["PORT"], $env["DATABASE"], $env["USER"], $env["PASSWORD"]);
 $router = new AltoRouter();
 

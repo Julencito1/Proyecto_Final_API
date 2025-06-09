@@ -4,7 +4,7 @@ namespace Conexion;
 use PDO;
 use Exception;
 
-class Database 
+class Conexion 
 {
     
     public function Conexion($Driver, $Host, $Port, $Database, $User, $Password) 
