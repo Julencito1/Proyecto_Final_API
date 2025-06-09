@@ -9,6 +9,7 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
     public static $prefixLengthsPsr4 = array (
         'U' => 
         array (
+            'Utils\\Usuarios\\' => 15,
             'Utils\\' => 6,
         ),
         'S' => 
@@ -49,6 +50,10 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
     );
 
     public static $prefixDirsPsr4 = array (
+        'Utils\\Usuarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/usuarios',
+        ),
         'Utils\\' => 
         array (
             0 => __DIR__ . '/../..' . '/utils',
@@ -138,6 +143,35 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Conexion\\Conexion' => __DIR__ . '/../..' . '/conexion/Conexion.php',
+        'Controllers\\Buscar\\Buscar' => __DIR__ . '/../..' . '/controllers/buscar/Buscar.php',
+        'Controllers\\Canales\\Canales' => __DIR__ . '/../..' . '/controllers/canales/Canales.php',
+        'Controllers\\Categorias\\Categorias' => __DIR__ . '/../..' . '/controllers/categorias/Categorias.php',
+        'Controllers\\ComentariosGustados\\ComentariosGustados' => __DIR__ . '/../..' . '/controllers/comentariosgustados/ComentariosGustados.php',
+        'Controllers\\ComentariosHijosGustados\\ComentariosHijosGustados' => __DIR__ . '/../..' . '/controllers/comentarioshijosgustados/ComentariosHijosGustados.php',
+        'Controllers\\Comentarios\\Comentarios' => __DIR__ . '/../..' . '/controllers/comentarios/Comentarios.php',
+        'Controllers\\Historial\\Historial' => __DIR__ . '/../..' . '/controllers/historial/Historial.php',
+        'Controllers\\Notificaciones\\Notificaciones' => __DIR__ . '/../..' . '/controllers/notificaciones/Notificaciones.php',
+        'Controllers\\RespuestasComentarios\\RespuestasComentarios' => __DIR__ . '/../..' . '/controllers/respuestascomentarios/RespuestasComentarios.php',
+        'Controllers\\Suscripciones\\Suscripciones' => __DIR__ . '/../..' . '/controllers/suscripciones/Suscripciones.php',
+        'Controllers\\Usuarios\\Usuarios' => __DIR__ . '/../..' . '/controllers/usuarios/Usuarios.php',
+        'Controllers\\VideosGuardados\\VideosGuardados' => __DIR__ . '/../..' . '/controllers/videosguardados/VideosGuardados.php',
+        'Controllers\\VideosMarcados\\VideosMarcados' => __DIR__ . '/../..' . '/controllers/videosmarcados/VideosMarcados.php',
+        'Controllers\\Videos\\Videos' => __DIR__ . '/../..' . '/controllers/videos/Videos.php',
+        'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
+        'Firebase\\JWT\\CachedKeySet' => __DIR__ . '/..' . '/firebase/php-jwt/src/CachedKeySet.php',
+        'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
+        'Firebase\\JWT\\JWK' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWK.php',
+        'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',
+        'Firebase\\JWT\\JWTExceptionWithPayloadInterface' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWTExceptionWithPayloadInterface.php',
+        'Firebase\\JWT\\Key' => __DIR__ . '/..' . '/firebase/php-jwt/src/Key.php',
+        'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
+        'Structs\\canales\\EstructuraCanales' => __DIR__ . '/../..' . '/structs/canales/EstructuraCanales.php',
+        'Structs\\notificaciones\\EstructuraNotificaciones' => __DIR__ . '/../..' . '/structs/notificaciones/EstructuraNotificaciones.php',
+        'Structs\\suscripciones\\EstructuraSuscripciones' => __DIR__ . '/../..' . '/structs/suscripciones/EstructuraSuscripciones.php',
+        'Structs\\usuarios\\EstructuraUsuarios' => __DIR__ . '/../..' . '/structs/usuarios/EstructuraUsuarios.php',
+        'Utils\\Usuarios\\Existe' => __DIR__ . '/../..' . '/utils/usuarios/Existe.php',
+        'Utils\\Usuarios\\Generar' => __DIR__ . '/../..' . '/utils/usuarios/Generar.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
