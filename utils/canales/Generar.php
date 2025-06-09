@@ -66,6 +66,8 @@ class Generar
             "portada_newtube5.webp",
             "portada_newtube6.webp",
             "portada_newtube7.webp",
+            "portada_newtube8.webp",
+            "portada_newtube9.webp",
         ];
 
         return "http://localhost:8081/file?file=./portadas/" .  $portadas[rand(0, count($portadas) - 1)];
