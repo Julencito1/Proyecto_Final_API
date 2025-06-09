@@ -33,10 +33,18 @@ if ($method == "OPTIONS") {
 }
 
 
-$env = parse_ini_file(__DIR__ . '/../.env');
+
 
 $db = new Conexion();
-$con = $db->Conexion($env["DRIVER"], $env["HOST"], $env["PORT"], $env["DATABASE"], $env["USER"], $env["PASSWORD"]);
+$con = $db->Conexion(
+    getenv("DRIVER"),
+    getenv("HOST"),
+    getenv("PORT"),
+    getenv("DATABASE"),
+    getenv("USER"),
+    getenv("PASSWORD")
+);
+
 $router = new AltoRouter();
 
 $usuarios = new Usuarios($con);
