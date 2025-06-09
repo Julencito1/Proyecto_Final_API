@@ -4,7 +4,7 @@
 namespace Controllers\Suscripciones;
 
 use PDO;
-use Structs\Suscripciones\EstructuraSuscripciones;
+use Structs\suscripciones\EstructuraSuscripciones;
 use Models\Suscripciones\Modelos;
 use Utils\Auth\Auth;
 use Utils\Canales\Obtener as CanalesObtener;

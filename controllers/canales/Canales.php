@@ -2,7 +2,7 @@
 
 namespace Controllers\Canales;
 
-use Structs\Canales\EstructuraCanales;
+use Structs\canales\EstructuraCanales;
 use Utils\Canales\Existe;
 use Utils\Canales\Generar;
 use Utils\Canales\Obtener;

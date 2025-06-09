@@ -4,7 +4,7 @@ namespace Controllers\Notificaciones;
 
 use Models\Notificaciones\Modelos;
 use PDO;
-use Structs\Notificaciones\EstructuraNotificaciones;
+use Structs\notificaciones\EstructuraNotificaciones;
 use Utils\Auth\Auth;
 use Utils\Usuarios\Obtener;
 

@@ -4,7 +4,7 @@ namespace Controllers\Usuarios;
 
 use Controllers\Canales\Canales;
 use PDO;
-use Structs\Usuarios\EstructuraUsuarios;
+use Structs\usuarios\EstructuraUsuarios;
 use Utils\Auth\Auth;
 use Utils\Usuarios\Existe;
 use Utils\Usuarios\Generar;
