@@ -10,7 +10,6 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         'U' => 
         array (
             'Utils\\' => 6,
-            'Usuarios\\' => 9,
         ),
         'S' => 
         array (
@@ -30,6 +29,7 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         ),
         'C' => 
         array (
+            'Controllers\\Usuarios\\' => 21,
             'Controllers\\' => 12,
             'Conexion\\' => 9,
         ),
@@ -39,10 +39,6 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         'Utils\\' => 
         array (
             0 => __DIR__ . '/../..' . '/utils',
-        ),
-        'Usuarios\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/controllers/usuarios',
         ),
         'Structs\\' => 
         array (
@@ -59,6 +55,10 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         'Firebase\\JWT\\' => 
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
+        'Controllers\\Usuarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/usuarios',
         ),
         'Controllers\\' => 
         array (
