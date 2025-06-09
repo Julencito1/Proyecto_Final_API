@@ -4,14 +4,13 @@ namespace Controllers\Comentarios;
 
 use Models\Comentarios\Modelos;
 use PDO;
-use Utils\auth\Auth;
-use Utils\comentarios\Generar;
-use Utils\comenarios\Obtener;
-use Utils\comentarios\Obtener as ComentariosObtener;
-use Utils\paginacion\Paginacion;
-use Utils\usuarios\Obtener as UsuariosObtener;
-use Utils\videos\Existe;
-use Utils\videos\Obtener as VideosObtener;
+use Utils\Auth\Auth;
+use Utils\Comentarios\Generar;
+use Utils\Comentarios\Obtener as ComentariosObtener;
+use Utils\Paginacion\Paginacion;
+use Utils\Usuarios\Obtener as UsuariosObtener;
+use Utils\Videos\Existe;
+use Utils\Videos\Obtener as VideosObtener;
 
 class Comentarios
 {

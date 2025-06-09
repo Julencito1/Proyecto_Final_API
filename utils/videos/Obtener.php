@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\videos;
+namespace Utils\Videos;
 use Controllers\Videos\Videos;
 use PDO;
 use Utils\Usuarios\Obtener as UsuariosObtener;

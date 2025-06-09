@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\videos;
+namespace Utils\Videos;
 use Utils\Caracteres\Caracteres;
 use PDO;
 

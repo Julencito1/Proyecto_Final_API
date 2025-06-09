@@ -5,10 +5,10 @@ namespace Controllers\Categorias;
 use Models\Canales\Modelos;
 use Models\Videos\Modelos as VideosModelos;
 use PDO;
-use Utils\auth\Auth;
-use Utils\categorias\Existe;
-use Utils\categorias\Obtener;
-use Utils\paginacion\Paginacion;
+use Utils\Auth\Auth;
+use Utils\Categorias\Existe;
+use Utils\Categorias\Obtener;
+use Utils\Paginacion\Paginacion;
 
 class Categorias
 {

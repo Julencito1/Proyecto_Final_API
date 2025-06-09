@@ -4,16 +4,16 @@ namespace Controllers\Videos;
 
 use Models\Videos\Modelos;
 use PDO;
-use Utils\auth\Auth;
-use Utils\canales\Obtener as CanalesObtener;
-use Utils\historial\Obtener as HistorialObtener;
-use Utils\paginacion\Paginacion;
-use Utils\usuarios\Obtener as UsuariosObtener;
-use Utils\videos\Existe as VideosExiste;
-use Utils\videos\Obtener;
-use Utils\videosGuardados\Obtener as VideosGuardadosObtener;
-use Utils\videosMarcados\Generar as VideosMarcadosGenerar;
-use Utils\videosMarcados\Obtener as VideosMarcadosObtener;
+use Utils\Auth\Auth;
+use Utils\Canales\Obtener as CanalesObtener;
+use Utils\Historial\Obtener as HistorialObtener;
+use Utils\Paginacion\Paginacion;
+use Utils\Usuarios\Obtener as UsuariosObtener;
+use Utils\Videos\Existe as VideosExiste;
+use Utils\Videos\Obtener;
+use Utils\VideosGuardados\Obtener as VideosGuardadosObtener;
+use Utils\VideosMarcados\Generar as VideosMarcadosGenerar;
+use Utils\VideosMarcados\Obtener as VideosMarcadosObtener;
 
 class Videos
 {

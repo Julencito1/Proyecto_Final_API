@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils\videosMarcados;
+namespace Utils\VideosMarcados;
 use Controllers\VideosMarcados\VideosMarcados;
 use Utils\Caracteres\Caracteres;
 

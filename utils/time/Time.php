@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils\time;
+namespace Utils\Time;
 
 
 class Time {

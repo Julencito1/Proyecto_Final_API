@@ -5,8 +5,8 @@ namespace Controllers\Buscar;
 use Models\Canales\Modelos;
 use Models\Videos\Modelos as VideosModelos;
 use PDO;
-use Utils\auth\Auth;
-use Utils\paginacion\Paginacion;
+use Utils\Auth\Auth;
+use Utils\Paginacion\Paginacion;
 
 class Buscar
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\caracteres;
+namespace Utils\Caracteres;
 
 class Caracteres 
 {

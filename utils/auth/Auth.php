@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\auth;
+namespace Utils\Auth;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;

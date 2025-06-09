@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\suscripciones;
+namespace Utils\Suscripciones;
 use Controllers\Suscripciones\Suscripciones;
 use PDO;
 

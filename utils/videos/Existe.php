@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils\videos;
+namespace Utils\Videos;
 
 use Controllers\Videos\Videos;
 use PDO;

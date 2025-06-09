@@ -5,10 +5,10 @@ namespace Controllers\Usuarios;
 use Controllers\Canales\Canales;
 use PDO;
 use Structs\usuarios\EstructuraUsuarios;
-use Utils\auth\Auth;
-use Utils\usuarios\Existe;
-use Utils\usuarios\Generar;
-use Utils\usuarios\Obtener;
+use Utils\Auth\Auth;
+use Utils\Usuarios\Existe;
+use Utils\Usuarios\Generar;
+use Utils\Usuarios\Obtener;
 use Models\Usuarios\Modelos;
 include __DIR__ . "../../../response/respuestas.php";
 

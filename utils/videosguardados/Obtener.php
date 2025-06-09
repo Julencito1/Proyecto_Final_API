@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\videosGuardados;
+namespace Utils\VideosGuardados;
 use Controllers\VideosGuardados\VideosGuardados;
 use PDO;
 

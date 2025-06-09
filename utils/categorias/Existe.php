@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\categorias;
+namespace Utils\Categorias;
 use Controllers\Categorias\Categorias;
 use PDO;
 

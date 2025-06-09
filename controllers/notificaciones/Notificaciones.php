@@ -5,8 +5,8 @@ namespace Controllers\Notificaciones;
 use Models\Notificaciones\Modelos;
 use PDO;
 use Structs\notificaciones\EstructuraNotificaciones;
-use Utils\auth\Auth;
-use Utils\usuarios\Obtener;
+use Utils\Auth\Auth;
+use Utils\Usuarios\Obtener;
 
 class Notificaciones extends EstructuraNotificaciones
 {
