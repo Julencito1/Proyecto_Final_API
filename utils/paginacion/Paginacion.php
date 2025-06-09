@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\Paginacion;
+namespace Utils\paginacion;
 use PDO;
 
 class Paginacion {

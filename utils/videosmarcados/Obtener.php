@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\VideosMarcados;
+namespace Utils\videosMarcados;
 use Controllers\VideosMarcados\VideosMarcados;
 use PDO;
 use Utils\Usuarios\Obtener as UsuariosObtener;

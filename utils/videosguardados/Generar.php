@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils\VideosGuardados;
+namespace Utils\videosGuardados;
 use Controllers\VideosGuardados\VideosGuardados;
 use Utils\Caracteres\Caracteres;
 use Firebase\JWT\JWT;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\Historial;
+namespace Utils\historial;
 use Controllers\Historial\Historial;
 use PDO;
 use Utils\Usuarios\Obtener as UsuariosObtener;

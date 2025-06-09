@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils\Canales;
+namespace Utils\canales;
 
 use Controllers\Canales\Canales;
 use PDO;

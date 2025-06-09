@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\RespuestasComentarios;
+namespace Utils\respuestasComentarios;
 
 use Controllers\RespuestasComentarios\RespuestasComentarios;
 use PDO;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\ComentariosGustados;
+namespace Utils\comentariosGustados;
 use Controllers\ComentariosGustados\ComentariosGustados;
 use PDO;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\Usuarios;
+namespace Utils\usuarios;
 use Controllers\Usuarios\Usuarios;
 use PDO;
 

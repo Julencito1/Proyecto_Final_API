@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils\Historial;
+namespace Utils\historial;
 use Controllers\Historial\Historial;
 use Utils\Caracteres\Caracteres;
 use PDO;

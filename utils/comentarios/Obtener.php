@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\Comentarios;
+namespace Utils\comentarios;
 use Controllers\Comentarios\Comentarios;
 use Models\Comentarios\Modelos;
 use PDO;

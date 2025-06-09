@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils\Usuarios;
+namespace Utils\usuarios;
 use Controllers\Usuarios\Usuarios;
 use Utils\Caracteres\Caracteres;
 use Firebase\JWT\JWT;

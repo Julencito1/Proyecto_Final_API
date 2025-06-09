@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Utils\Comentarios;
+namespace Utils\comentarios;
 use Controllers\Comentarios\Comentarios;
 use Utils\Caracteres\Caracteres;
 use PDO;
