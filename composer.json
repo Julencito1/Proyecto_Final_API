@@ -10,6 +10,7 @@
             "Controllers\\": "controllers/",
             "Structs\\": "structs/",
             "Utils\\": "utils/",
+            "Utils\\Usuarios\\": "utils/usuarios",
             "Response\\": "response/",
             "Models\\": "models/"
         }
