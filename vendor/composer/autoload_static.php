@@ -29,6 +29,20 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         ),
         'C' => 
         array (
+            'Controllers\\Videos\\' => 19,
+            'Controllers\\VideosMarcados\\' => 27,
+            'Controllers\\VideosGuardados\\' => 28,
+            'Controllers\\Usuarios\\' => 21,
+            'Controllers\\Suscripciones\\' => 26,
+            'Controllers\\RespuestasComentarios\\' => 34,
+            'Controllers\\Notificaciones\\' => 27,
+            'Controllers\\Historial\\' => 22,
+            'Controllers\\Comentarios\\' => 24,
+            'Controllers\\ComentariosHijosGustados\\' => 37,
+            'Controllers\\ComentariosGustados\\' => 32,
+            'Controllers\\Categorias\\' => 23,
+            'Controllers\\Canales\\' => 20,
+            'Controllers\\Buscar\\' => 19,
             'Controllers\\' => 12,
             'Conexion\\' => 9,
         ),
@@ -55,6 +69,62 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
+        'Controllers\\Videos\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/videos',
+        ),
+        'Controllers\\VideosMarcados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/videosmarcados',
+        ),
+        'Controllers\\VideosGuardados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/videosguardados',
+        ),
+        'Controllers\\Usuarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/usuarios',
+        ),
+        'Controllers\\Suscripciones\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/suscripciones',
+        ),
+        'Controllers\\RespuestasComentarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/respuestascomentarios',
+        ),
+        'Controllers\\Notificaciones\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/notificaciones',
+        ),
+        'Controllers\\Historial\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/historial',
+        ),
+        'Controllers\\Comentarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/comentarios',
+        ),
+        'Controllers\\ComentariosHijosGustados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/comentarioshijosgustados',
+        ),
+        'Controllers\\ComentariosGustados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/comentariosgustados',
+        ),
+        'Controllers\\Categorias\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/categorias',
+        ),
+        'Controllers\\Canales\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/canales',
+        ),
+        'Controllers\\Buscar\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/buscar',
+        ),
         'Controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controllers',
@@ -68,19 +138,6 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Conexion\\Conexion' => __DIR__ . '/../..' . '/conexion/Conexion.php',
-        'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
-        'Firebase\\JWT\\CachedKeySet' => __DIR__ . '/..' . '/firebase/php-jwt/src/CachedKeySet.php',
-        'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
-        'Firebase\\JWT\\JWK' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWK.php',
-        'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',
-        'Firebase\\JWT\\JWTExceptionWithPayloadInterface' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWTExceptionWithPayloadInterface.php',
-        'Firebase\\JWT\\Key' => __DIR__ . '/..' . '/firebase/php-jwt/src/Key.php',
-        'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
-        'Structs\\canales\\EstructuraCanales' => __DIR__ . '/../..' . '/structs/canales/EstructuraCanales.php',
-        'Structs\\notificaciones\\EstructuraNotificaciones' => __DIR__ . '/../..' . '/structs/notificaciones/EstructuraNotificaciones.php',
-        'Structs\\suscripciones\\EstructuraSuscripciones' => __DIR__ . '/../..' . '/structs/suscripciones/EstructuraSuscripciones.php',
-        'Structs\\usuarios\\EstructuraUsuarios' => __DIR__ . '/../..' . '/structs/usuarios/EstructuraUsuarios.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

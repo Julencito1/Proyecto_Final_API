@@ -8,17 +8,4 @@ $baseDir = dirname($vendorDir);
 return array(
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Conexion\\Conexion' => $baseDir . '/conexion/Conexion.php',
-    'Firebase\\JWT\\BeforeValidException' => $vendorDir . '/firebase/php-jwt/src/BeforeValidException.php',
-    'Firebase\\JWT\\CachedKeySet' => $vendorDir . '/firebase/php-jwt/src/CachedKeySet.php',
-    'Firebase\\JWT\\ExpiredException' => $vendorDir . '/firebase/php-jwt/src/ExpiredException.php',
-    'Firebase\\JWT\\JWK' => $vendorDir . '/firebase/php-jwt/src/JWK.php',
-    'Firebase\\JWT\\JWT' => $vendorDir . '/firebase/php-jwt/src/JWT.php',
-    'Firebase\\JWT\\JWTExceptionWithPayloadInterface' => $vendorDir . '/firebase/php-jwt/src/JWTExceptionWithPayloadInterface.php',
-    'Firebase\\JWT\\Key' => $vendorDir . '/firebase/php-jwt/src/Key.php',
-    'Firebase\\JWT\\SignatureInvalidException' => $vendorDir . '/firebase/php-jwt/src/SignatureInvalidException.php',
-    'Structs\\canales\\EstructuraCanales' => $baseDir . '/structs/canales/EstructuraCanales.php',
-    'Structs\\notificaciones\\EstructuraNotificaciones' => $baseDir . '/structs/notificaciones/EstructuraNotificaciones.php',
-    'Structs\\suscripciones\\EstructuraSuscripciones' => $baseDir . '/structs/suscripciones/EstructuraSuscripciones.php',
-    'Structs\\usuarios\\EstructuraUsuarios' => $baseDir . '/structs/usuarios/EstructuraUsuarios.php',
 );
