@@ -1,6 +1,6 @@
 <?php
 
-namespace Structs\Notificaciones;
+namespace Structs\notificaciones;
 
 abstract class EstructuraNotificaciones
 {

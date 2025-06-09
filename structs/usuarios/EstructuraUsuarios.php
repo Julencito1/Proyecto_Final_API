@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Structs\Usuarios;
+namespace Structs\usuarios;
 
 
 

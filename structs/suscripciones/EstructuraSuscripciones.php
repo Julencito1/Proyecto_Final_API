@@ -1,6 +1,6 @@
 <?php
 
-namespace Structs\Suscripciones;
+namespace Structs\suscripciones;
 
 abstract class EstructuraSuscripciones
 {

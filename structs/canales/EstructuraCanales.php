@@ -1,6 +1,6 @@
 <?php
 
-namespace Structs\Canales;
+namespace Structs\canales;
 use PDO;
 
 abstract class EstructuraCanales
