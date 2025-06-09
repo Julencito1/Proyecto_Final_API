@@ -9,6 +9,23 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
     public static $prefixLengthsPsr4 = array (
         'U' => 
         array (
+            'Utils\\Videos\\' => 13,
+            'Utils\\VideosMarcados\\' => 21,
+            'Utils\\VideosGuardados\\' => 22,
+            'Utils\\Usuarios\\' => 15,
+            'Utils\\Time\\' => 11,
+            'Utils\\Suscripciones\\' => 20,
+            'Utils\\RespuestasComentarios\\' => 28,
+            'Utils\\Paginacion\\' => 17,
+            'Utils\\Historial\\' => 16,
+            'Utils\\Date\\' => 11,
+            'Utils\\Comentarios\\' => 18,
+            'Utils\\ComentariosHijosGustados\\' => 31,
+            'Utils\\ComentariosGustados\\' => 26,
+            'Utils\\Categorias\\' => 17,
+            'Utils\\Caracteres\\' => 17,
+            'Utils\\Canales\\' => 14,
+            'Utils\\Auth\\' => 11,
             'Utils\\' => 6,
         ),
         'S' => 
@@ -29,12 +46,94 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         ),
         'C' => 
         array (
+            'Controllers\\Videos\\' => 19,
+            'Controllers\\VideosMarcados\\' => 27,
+            'Controllers\\VideosGuardados\\' => 28,
+            'Controllers\\Usuarios\\' => 21,
+            'Controllers\\Suscripciones\\' => 26,
+            'Controllers\\RespuestasComentarios\\' => 34,
+            'Controllers\\Notificaciones\\' => 27,
+            'Controllers\\Historial\\' => 22,
+            'Controllers\\Comentarios\\' => 24,
+            'Controllers\\ComentariosHijosGustados\\' => 37,
+            'Controllers\\ComentariosGustados\\' => 32,
+            'Controllers\\Categorias\\' => 23,
+            'Controllers\\Canales\\' => 20,
+            'Controllers\\Buscar\\' => 19,
             'Controllers\\' => 12,
             'Conexion\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Utils\\Videos\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/videos',
+        ),
+        'Utils\\VideosMarcados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/videosmarcados',
+        ),
+        'Utils\\VideosGuardados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/videosguardados',
+        ),
+        'Utils\\Usuarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/usuarios',
+        ),
+        'Utils\\Time\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/time',
+        ),
+        'Utils\\Suscripciones\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/suscripciones',
+        ),
+        'Utils\\RespuestasComentarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/respuestascomentarios',
+        ),
+        'Utils\\Paginacion\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/paginacion',
+        ),
+        'Utils\\Historial\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/historial',
+        ),
+        'Utils\\Date\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/date',
+        ),
+        'Utils\\Comentarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/comentarios',
+        ),
+        'Utils\\ComentariosHijosGustados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/comentarioshijosgustados',
+        ),
+        'Utils\\ComentariosGustados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/comentariosgustados',
+        ),
+        'Utils\\Categorias\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/categorias',
+        ),
+        'Utils\\Caracteres\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/caracteres',
+        ),
+        'Utils\\Canales\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/canales',
+        ),
+        'Utils\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/utils/auth',
+        ),
         'Utils\\' => 
         array (
             0 => __DIR__ . '/../..' . '/utils',
@@ -55,6 +154,62 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
+        'Controllers\\Videos\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/videos',
+        ),
+        'Controllers\\VideosMarcados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/videosmarcados',
+        ),
+        'Controllers\\VideosGuardados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/videosguardados',
+        ),
+        'Controllers\\Usuarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/usuarios',
+        ),
+        'Controllers\\Suscripciones\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/suscripciones',
+        ),
+        'Controllers\\RespuestasComentarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/respuestascomentarios',
+        ),
+        'Controllers\\Notificaciones\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/notificaciones',
+        ),
+        'Controllers\\Historial\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/historial',
+        ),
+        'Controllers\\Comentarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/comentarios',
+        ),
+        'Controllers\\ComentariosHijosGustados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/comentarioshijosgustados',
+        ),
+        'Controllers\\ComentariosGustados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/comentariosgustados',
+        ),
+        'Controllers\\Categorias\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/categorias',
+        ),
+        'Controllers\\Canales\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/canales',
+        ),
+        'Controllers\\Buscar\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers/buscar',
+        ),
         'Controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controllers',
@@ -69,6 +224,20 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Conexion\\Conexion' => __DIR__ . '/../..' . '/conexion/Conexion.php',
+        'Controllers\\Buscar\\Buscar' => __DIR__ . '/../..' . '/controllers/buscar/Buscar.php',
+        'Controllers\\Canales\\Canales' => __DIR__ . '/../..' . '/controllers/canales/Canales.php',
+        'Controllers\\Categorias\\Categorias' => __DIR__ . '/../..' . '/controllers/categorias/Categorias.php',
+        'Controllers\\ComentariosGustados\\ComentariosGustados' => __DIR__ . '/../..' . '/controllers/comentariosgustados/ComentariosGustados.php',
+        'Controllers\\ComentariosHijosGustados\\ComentariosHijosGustados' => __DIR__ . '/../..' . '/controllers/comentarioshijosgustados/ComentariosHijosGustados.php',
+        'Controllers\\Comentarios\\Comentarios' => __DIR__ . '/../..' . '/controllers/comentarios/Comentarios.php',
+        'Controllers\\Historial\\Historial' => __DIR__ . '/../..' . '/controllers/historial/Historial.php',
+        'Controllers\\Notificaciones\\Notificaciones' => __DIR__ . '/../..' . '/controllers/notificaciones/Notificaciones.php',
+        'Controllers\\RespuestasComentarios\\RespuestasComentarios' => __DIR__ . '/../..' . '/controllers/respuestascomentarios/RespuestasComentarios.php',
+        'Controllers\\Suscripciones\\Suscripciones' => __DIR__ . '/../..' . '/controllers/suscripciones/Suscripciones.php',
+        'Controllers\\Usuarios\\Usuarios' => __DIR__ . '/../..' . '/controllers/usuarios/Usuarios.php',
+        'Controllers\\VideosGuardados\\VideosGuardados' => __DIR__ . '/../..' . '/controllers/videosguardados/VideosGuardados.php',
+        'Controllers\\VideosMarcados\\VideosMarcados' => __DIR__ . '/../..' . '/controllers/videosmarcados/VideosMarcados.php',
+        'Controllers\\Videos\\Videos' => __DIR__ . '/../..' . '/controllers/videos/Videos.php',
         'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
         'Firebase\\JWT\\CachedKeySet' => __DIR__ . '/..' . '/firebase/php-jwt/src/CachedKeySet.php',
         'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
@@ -81,6 +250,35 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         'Structs\\notificaciones\\EstructuraNotificaciones' => __DIR__ . '/../..' . '/structs/notificaciones/EstructuraNotificaciones.php',
         'Structs\\suscripciones\\EstructuraSuscripciones' => __DIR__ . '/../..' . '/structs/suscripciones/EstructuraSuscripciones.php',
         'Structs\\usuarios\\EstructuraUsuarios' => __DIR__ . '/../..' . '/structs/usuarios/EstructuraUsuarios.php',
+        'Utils\\Auth\\Auth' => __DIR__ . '/../..' . '/utils/auth/Auth.php',
+        'Utils\\Canales\\Existe' => __DIR__ . '/../..' . '/utils/canales/Existe.php',
+        'Utils\\Canales\\Generar' => __DIR__ . '/../..' . '/utils/canales/Generar.php',
+        'Utils\\Canales\\Obtener' => __DIR__ . '/../..' . '/utils/canales/Obtener.php',
+        'Utils\\Categorias\\Existe' => __DIR__ . '/../..' . '/utils/categorias/Existe.php',
+        'Utils\\Categorias\\Obtener' => __DIR__ . '/../..' . '/utils/categorias/Obtener.php',
+        'Utils\\ComentariosGustados\\Obtener' => __DIR__ . '/../..' . '/utils/comentariosgustados/Obtener.php',
+        'Utils\\ComentariosHijosGustados\\Obtener' => __DIR__ . '/../..' . '/utils/comentarioshijosgustados/Obtener.php',
+        'Utils\\Comentarios\\Generar' => __DIR__ . '/../..' . '/utils/comentarios/Generar.php',
+        'Utils\\Comentarios\\Obtener' => __DIR__ . '/../..' . '/utils/comentarios/Obtener.php',
+        'Utils\\Date\\Date' => __DIR__ . '/../..' . '/utils/date/Date.php',
+        'Utils\\Historial\\Generar' => __DIR__ . '/../..' . '/utils/historial/Generar.php',
+        'Utils\\Historial\\Obtener' => __DIR__ . '/../..' . '/utils/historial/Obtener.php',
+        'Utils\\Paginacion\\Paginacion' => __DIR__ . '/../..' . '/utils/paginacion/Paginacion.php',
+        'Utils\\RespuestasComentarios\\Generar' => __DIR__ . '/../..' . '/utils/respuestascomentarios/Generar.php',
+        'Utils\\RespuestasComentarios\\Obtener' => __DIR__ . '/../..' . '/utils/respuestascomentarios/Obtener.php',
+        'Utils\\Suscripciones\\Existe' => __DIR__ . '/../..' . '/utils/suscripciones/Existe.php',
+        'Utils\\Suscripciones\\Generar' => __DIR__ . '/../..' . '/utils/suscripciones/Generar.php',
+        'Utils\\Suscripciones\\Obtener' => __DIR__ . '/../..' . '/utils/suscripciones/Obtener.php',
+        'Utils\\Time\\Time' => __DIR__ . '/../..' . '/utils/time/Time.php',
+        'Utils\\Usuarios\\Existe' => __DIR__ . '/../..' . '/utils/usuarios/Existe.php',
+        'Utils\\Usuarios\\Generar' => __DIR__ . '/../..' . '/utils/usuarios/Generar.php',
+        'Utils\\Usuarios\\Obtener' => __DIR__ . '/../..' . '/utils/usuarios/Obtener.php',
+        'Utils\\VideosGuardados\\Generar' => __DIR__ . '/../..' . '/utils/videosguardados/Generar.php',
+        'Utils\\VideosGuardados\\Obtener' => __DIR__ . '/../..' . '/utils/videosguardados/Obtener.php',
+        'Utils\\VideosMarcados\\Generar' => __DIR__ . '/../..' . '/utils/videosmarcados/Generar.php',
+        'Utils\\VideosMarcados\\Obtener' => __DIR__ . '/../..' . '/utils/videosmarcados/Obtener.php',
+        'Utils\\Videos\\Existe' => __DIR__ . '/../..' . '/utils/videos/Existe.php',
+        'Utils\\Videos\\Obtener' => __DIR__ . '/../..' . '/utils/videos/Obtener.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
