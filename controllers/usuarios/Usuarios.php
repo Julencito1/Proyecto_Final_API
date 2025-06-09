@@ -41,7 +41,7 @@ class Usuarios extends EstructuraUsuarios
         $noExiste = $this->ExtraExiste->ExisteUsuario($datos["email"]);
         $hash = password_hash($datos["password"], PASSWORD_DEFAULT);
 
-        if ($noExiste) {
+        if ($noExiste === 0) {
 
             $ident = $this->ExtraGenerar->GenerarIdentificador();
             $nombre_pasado = $datos['nombre'];
@@ -94,6 +94,15 @@ class Usuarios extends EstructuraUsuarios
 
         $loginData = file_get_contents("php://input");
         $datos = json_decode($loginData, true);
+
+        $noExiste = $this->ExtraExiste->ExisteUsuario($datos["email"]);
+
+   
+        if ($noExiste === 0)
+        {
+            echo RespuestaFail("Correo o contraseña incorrectos");
+            return;
+        }
 
         $p_hash = $this->ExtraObtener->ObtenerPasswordHash($datos["email"]);
 
