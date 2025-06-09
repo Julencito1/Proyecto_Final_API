@@ -6,24 +6,9 @@
     "autoload": {
         "psr-4": {
             "Conexion\\": "conexion/",
-            "Controllers\\Usuarios\\": "controllers/usuarios",
-            "Controllers\\Videos\\": "controllers/videos",
-            "Controllers\\Suscripciones\\": "controllers/suscripciones",
-            "Controllers\\Historial\\": "controllers/historial",
-            "Controllers\\Notificaciones\\": "controllers/notificaciones",
-            "Controllers\\Categorias\\": "controllers/categorias",
-            "Controllers\\Canales\\": "controllers/canales",
-            "Controllers\\Buscar\\": "controllers/buscar",
-            "Controllers\\VideosMarcados\\": "controllers/videosmarcados",
-            "Controllers\\VideosGuardados\\": "controllers/videosguardados",
-            "Controllers\\ComentariosHijosGustados\\": "controllers/comentarioshijosgustados",
-            "Controllers\\ComentariosGustados\\": "controllers/comentariosgustados",
-            "Controllers\\RespuestasComentarios\\": "controllers/respuestascomentarios",
-            "Controllers\\Comentarios\\": "controllers/comentarios",
             "Controllers\\": "controllers/",
             "Structs\\": "structs/",
             "Utils\\": "utils/",
-            "Utils\\Usuarios\\": "utils/usuarios",
             "Response\\": "response/",
             "Models\\": "models/"
         }
