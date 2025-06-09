@@ -38,6 +38,15 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         ),
         'M' => 
         array (
+            'Models\\Videos\\' => 14,
+            'Models\\VideosMarcados\\' => 22,
+            'Models\\VideosGuardados\\' => 23,
+            'Models\\Usuarios\\' => 16,
+            'Models\\Suscripciones\\' => 21,
+            'Models\\Notificaciones\\' => 22,
+            'Models\\Historial\\' => 17,
+            'Models\\Comentarios\\' => 19,
+            'Models\\Canales\\' => 15,
             'Models\\' => 7,
         ),
         'F' => 
@@ -146,6 +155,42 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         array (
             0 => __DIR__ . '/../..' . '/response',
         ),
+        'Models\\Videos\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/videos',
+        ),
+        'Models\\VideosMarcados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/videosmarcados',
+        ),
+        'Models\\VideosGuardados\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/videosguardados',
+        ),
+        'Models\\Usuarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/usuarios',
+        ),
+        'Models\\Suscripciones\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/suscripciones',
+        ),
+        'Models\\Notificaciones\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/notificaciones',
+        ),
+        'Models\\Historial\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/historial',
+        ),
+        'Models\\Comentarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/comentarios',
+        ),
+        'Models\\Canales\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models/canales',
+        ),
         'Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/models',
@@ -246,6 +291,15 @@ class ComposerStaticInit053cb59c2ac3ebd17e018d4ac5803c83
         'Firebase\\JWT\\JWTExceptionWithPayloadInterface' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWTExceptionWithPayloadInterface.php',
         'Firebase\\JWT\\Key' => __DIR__ . '/..' . '/firebase/php-jwt/src/Key.php',
         'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
+        'Models\\Canales\\Modelos' => __DIR__ . '/../..' . '/models/canales/Modelos.php',
+        'Models\\Comentarios\\Modelos' => __DIR__ . '/../..' . '/models/comentarios/Modelos.php',
+        'Models\\Historial\\Modelos' => __DIR__ . '/../..' . '/models/historial/Modelos.php',
+        'Models\\Notificaciones\\Modelos' => __DIR__ . '/../..' . '/models/notificaciones/Modelos.php',
+        'Models\\Suscripciones\\Modelos' => __DIR__ . '/../..' . '/models/suscripciones/Modelos.php',
+        'Models\\Usuarios\\Modelos' => __DIR__ . '/../..' . '/models/usuarios/Modelos.php',
+        'Models\\VideosGuardados\\Modelos' => __DIR__ . '/../..' . '/models/videosguardados/Modelos.php',
+        'Models\\VideosMarcados\\Modelos' => __DIR__ . '/../..' . '/models/videosmarcados/Modelos.php',
+        'Models\\Videos\\Modelos' => __DIR__ . '/../..' . '/models/videos/Modelos.php',
         'Structs\\canales\\EstructuraCanales' => __DIR__ . '/../..' . '/structs/canales/EstructuraCanales.php',
         'Structs\\notificaciones\\EstructuraNotificaciones' => __DIR__ . '/../..' . '/structs/notificaciones/EstructuraNotificaciones.php',
         'Structs\\suscripciones\\EstructuraSuscripciones' => __DIR__ . '/../..' . '/structs/suscripciones/EstructuraSuscripciones.php',

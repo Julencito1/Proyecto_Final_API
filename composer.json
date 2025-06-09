@@ -41,7 +41,16 @@
             "Utils\\VideosGuardados\\": "utils/videosguardados",
             "Utils\\VideosMarcados\\": "utils/videosmarcados",
             "Response\\": "response/",
-            "Models\\": "models/"
+            "Models\\": "models/",
+            "Models\\Canales\\": "models/canales",
+            "Models\\Comentarios\\": "models/comentarios",
+            "Models\\Historial\\": "models/historial",
+            "Models\\Notificaciones\\": "models/notificaciones",
+            "Models\\Suscripciones\\": "models/suscripciones",
+            "Models\\Usuarios\\": "models/usuarios",
+            "Models\\Videos\\": "models/videos",
+            "Models\\VideosGuardados\\": "models/videosguardados",
+            "Models\\VideosMarcados\\": "models/videosmarcados"
         }
     }
 }
