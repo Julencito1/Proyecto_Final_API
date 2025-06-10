@@ -22,7 +22,7 @@ header('Content-Type: application/json; charset=utf-8');
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
 header("Expires: 0");
-header('Access-Control-Allow-Origin: https://proyectofinalapi-production-0ce0.up.railway.app');
+header('Access-Control-Allow-Origin: https://newtube-tp1f.onrender.com/');
 header("Access-Control-Allow-Headers: X-API-KEY, Authorization, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
