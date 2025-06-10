@@ -28,7 +28,7 @@ class Generar
         while ($estado) {
             $identificador = "";
 
-            for ($x = 0; $x < 36; $x++) {
+            for ($x = 0; $x < 32; $x++) {
 
                 $identificador .= Caracteres::$letras_numeros[rand(0, count(Caracteres::$letras_numeros) - 1)];
             }
