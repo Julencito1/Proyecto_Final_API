@@ -80,7 +80,7 @@ class Generar
             "newtube_avatar9.webp",
         ];
 
-        return "http://localhost:8081/file?file=./usuarios/" . $avatares[rand(0, count($avatares) - 1)];
+        return "https://fileserver-proyectofinal.vercel.app/static/usuarios/" . $avatares[rand(0, count($avatares) - 1)];
     }
 
     

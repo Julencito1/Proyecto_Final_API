@@ -70,7 +70,7 @@ class Generar
             "portada_newtube9.webp",
         ];
 
-        return "http://localhost:8081/file?file=./portadas/" .  $portadas[rand(0, count($portadas) - 1)];
+        return "https://fileserver-proyectofinal.vercel.app/static/portadas/" .  $portadas[rand(0, count($portadas) - 1)];
     }
 
 
