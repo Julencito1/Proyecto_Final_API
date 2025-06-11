@@ -61,8 +61,13 @@ class Date {
     public static function TiempoRelativo($fecha): string
     {
         $zona = new DateTimeZone('Europe/Madrid');
+        $zona_utc = new DateTimeZone('UTC')
+       
+
+        $fecha_pasada = new DateTime($fecha, $zona_utc);
+        $fecha_pasada->setTimezone($zona);
+
         $actual = new DateTime('now', $zona);
-        $fecha_pasada = new DateTime($fecha, $zona);
 
         $diferencia = $actual->diff($fecha_pasada);
 
