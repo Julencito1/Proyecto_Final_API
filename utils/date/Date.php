@@ -61,7 +61,7 @@ class Date {
     public static function TiempoRelativo($fecha): string
     {
         $zona = new DateTimeZone('Europe/Madrid');
-        $zona_utc = new DateTimeZone('UTC')
+        $zona_utc = new DateTimeZone('UTC');
        
 
         $fecha_pasada = new DateTime($fecha, $zona_utc);
