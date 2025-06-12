@@ -11,10 +11,17 @@ class Auth {
     {
 
         if (isset($headers["Authorization"])) {
-            $token = trim(str_replace("Bearer ", "", $headers["Authorization"]));
-            $decode = JWT::decode($token, new Key("18dddd6d-bef4-44fe-9b92-f67030332b3f", "HS256"));
+            try {
 
-            return $decode->seed;
+                $token = trim(str_replace("Bearer ", "", $headers["Authorization"]));
+                $decode = JWT::decode($token, new Key("18dddd6d-bef4-44fe-9b92-f67030332b3f", "HS256"));
+
+                return $decode->seed;
+                
+            } catch(Exception $e)
+            {
+                return ""
+            }
         }
 
         return "";
