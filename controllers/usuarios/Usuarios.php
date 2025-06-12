@@ -161,7 +161,7 @@ class Usuarios extends EstructuraUsuarios
         $estado = $datosUsuarios->execute();
         $respuesta = $datosUsuarios->fetch(PDO::FETCH_ASSOC);
 
-        if (!$estado)
+        if (!$estado || count($respuesta) === 0)
         {
          echo EstadoFAIL();
          return;
